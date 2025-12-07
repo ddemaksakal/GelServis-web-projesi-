@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>GelServis | Akıllı Servis Yönetim Platformu</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+<link href="plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+<link href="plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+<link href="css/style.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+<!-- GelServis: Language selector styles -->
+<style>
+  .lang-wrap{display:inline-block;margin-right:12px;vertical-align:middle}
+  .lang-select{appearance:none;-webkit-appearance:none;-moz-appearance:none;border:1px solid rgba(0,0,0,.08);background:#ffffff;padding:6px 10px;border-radius:6px;font-size:13px;color:#333;cursor:pointer}
+  .lang-select:focus{outline:none;box-shadow:0 0 0 3px rgba(34,150,243,0.08)}
+  /* small screens: slightly smaller select */
+  @media (max-width:600px){
+    .lang-wrap{margin-right:6px}
+    .lang-select{padding:5px 8px;font-size:12px;border-radius:5px}
+  }
+  /* Header layout: keep visual styles unchanged, only position and alignment */
+  /* Reduced heights to avoid visual overflow and prevent banner overlap */
+  .header-top{height:64px}
+  .header-top .inner-container{display:flex;align-items:center;justify-content:space-between;height:100%}
+  .header-top .top-left,.header-top .top-right{display:flex;align-items:center}
+  /* Stack contact items vertically to match visual (phone above email) while keeping icons aligned */
+  .header-top .list-style-one{margin:0;padding:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  .header-top .list-style-one li{display:flex;align-items:center;gap:10px}
+  .header-top .list-style-one li a{white-space:nowrap}
+  .header-lower .main-box{display:flex;align-items:center;justify-content:space-between}
+  .header-lower .logo-box{flex:0 0 auto}
+  .header-lower .nav-outer{flex:1;display:flex;justify-content:center}
+  .header-lower .outer-box{flex:0 0 auto;display:flex;align-items:center;gap:12px}
+  .header-top, .header-lower{margin:0;padding:0}
+  .header-top{width:100%}
+  /* Center nav links horizontally while keeping logo left and controls right */
+  /* Reduced gap and adjusted link padding to remove excessive spacing */
+  .nav-outer .navigation{display:flex;gap:16px;align-items:center;justify-content:center}
+  .nav-outer .navigation li a{display:inline-block;padding:8px 10px}
+  .nav-outer .navigation li{list-style:none}
+  .header-lower{height:72px}
+  .header-lower .main-box{height:100%}
+  /* remove any vertical gaps between top and lower bars */
+  .header-top + .header-lower{margin-top:0}
+  @media (max-width:991px){
+    .header-top{height:auto}
+    .header-top .inner-container{flex-wrap:wrap}
+    .header-lower .nav-outer{order:2;width:100%}
+  }
+</style>
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    
+  <!-- Preloader -->
+  <div class="preloader"><h1 data-text="GelServis | Akıllı Servis Yönetim Platformu" data-i18n="preloader.title">GelServis | Akıllı Servis Yönetim Platformu</h1></div>
+  
+   <!-- Main Header-->
+  <header class="main-header header-style-one"> 
+    
+    <div class="header-lower">
+      <div class="auto-container"> 
+        <!-- Main box -->
+        <div class="main-box">
+          <div class="logo-box">
+            <div class="logo">
+              <a href="index.html">
+                <img src="images/logo-1.png" alt="Logo">
+                <span class="logo-text">GelServis</span>
+              </a>
+            </div>
+          </div>
+          
+          <!--Nav Box-->
+          <div class="nav-outer">
+            <nav class="nav main-menu">
+              <ul class="navigation">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="#benefit-section-two">Hizmetlerimiz</a></li>
+                <li><a href="page-about.html">Hakkımızda</a></li>
+                <li><a href="page-faq.html">S.S.S</a></li>
+                <li><a href="page-contact.html">İletişim</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Main Menu End--> 
+          
+          <!-- Outer Box -->
+          <div class="outer-box"> 
+            
+            <!-- Search Btn -->
+            <button class="ui-btn search-btn light"> <span class="icon lnr lnr-icon-search"></span> </button>
+            
+            <!-- Btn Box -->
+            <div class="btn-box"> <a href="page-booking.html" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Book a Taxi</span></a> </div>
+            
+            <!-- Mobile Nav toggler -->
+            <div class="mobile-nav-toggler light"><span class="icon lnr-icon-bars"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+      <div class="menu-backdrop"></div>
+      
+      <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+      <nav class="menu-box">
+        <div class="upper-box">
+          <div class="nav-logo"><a href="index.html"><img src="images/logo-1.png" alt="" title=""><span class="logo-text">GelServis</span></a></div>
+          <div class="close-btn"><i class="icon fa fa-times"></i></div>
+        </div>
+        <ul class="navigation clearfix">
+          <!--Keep This Empty / Menu will come through Javascript-->
+        </ul>
+        <ul class="contact-list-one light">
+          <li> <i class="icon lnr-icon-phone-handset"></i> <span class="title">Call Now</span>
+            <div class="text"><a href="tel:+92880098670">+92 (8800) - 98670</a></div>
+          </li>
+          <li> <i class="icon lnr-icon-envelope1"></i> <span class="title">Send Email</span>
+            <div class="text"><a href="mailto:help@company.com">help@company.com</a></div>
+          </li>
+          <li> <i class="icon lnr-icon-map-marker"></i> <span class="title">Address</span>
+            <div class="text">66 Broklyant, New York India 3269</div>
+          </li>
+        </ul>
+        <ul class="social-links">
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- End Mobile Menu --> 
+    
+    <!-- Header Search -->
+    <div class="search-popup"> <span class="search-back-drop"></span>
+      <button class="close-search"><span class="fa fa-times"></span></button>
+      <div class="search-inner">
+        <form method="post" action="blog-showcase.html">
+          <div class="form-group">
+            <input type="search" name="search-field" value="" placeholder="Search..." required="">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End Header Search --> 
+    
+    <!-- Sticky Header  -->
+    <div class="sticky-header">
+      <div class="auto-container">
+        <div class="inner-container"> 
+          <!--Logo-->
+          <div class="logo"> <a href="index.html" title=""><img src="images/logo-1.png" alt="" title=""><span class="logo-text">GelServis</span></a> </div>
+          
+          <!--Right Col-->
+          <div class="nav-outer"> 
+            <!-- Main Menu -->
+            <nav class="main-menu">
+              <div class="navbar-collapse show collapse clearfix">
+                <ul class="navigation clearfix">
+                  <!--Keep This Empty / Menu will come through Javascript-->
+                </ul>
+              </div>
+            </nav>
+            <!-- Main Menu End--> 
+            
+            <!--Mobile Navigation Toggler-->
+            <div class="mobile-nav-toggler"><span class="icon lnr-icon-bars"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Sticky Menu --> 
+  </header>
+  <!--End Main Header -->
+  <!-- Banner Section -->
+  <section class="banner-section">
+    <div class="banner-carousel owl-carousel owl-theme">
+      <div class="slide-item">
+        <div class="bg bg-image" style="background-image: url(images/banner/banner.jpg);"></div>
+        <div class="banner-shape-curve1 animate-1"></div>
+        <div class="banner-shape-curve2 animate-1"></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1 class="title animate-1" data-i18n="banner.title">GelServis: Servis Yönetiminde Güven, Verimlilik ve Yapay Zeka.</h1>
+            <div class="text animate-2" data-i18n="banner.text">Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.</div>
+            <a href="page-services.html" class="theme-btn btn-style-one dark-line-two hover-light animate-3"><span class="btn-title" data-i18n="banner.cta">Hizmetleri Keşfet</span></a>
+          </div>
+        </div>
+   
+      </div>
+      <div class="slide-item">
+        <div class="bg bg-image" style="background-image: url(images/banner/banner2.png);"></div>
+        <div class="banner-shape-curve1 animate-1"></div>
+        <div class="banner-shape-curve2 animate-1"></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1 class="title animate-1" data-i18n="banner.title">GelServis: Servis Yönetiminde Güven, Verimlilik ve Yapay Zeka.</h1>
+            <div class="text animate-2" data-i18n="banner.text">Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.</div>
+            <a href="page-services.html" class="theme-btn btn-style-one dark-line-two hover-light animate-3"><span class="btn-title" data-i18n="banner.cta">Hizmetleri Keşfet</span></a>
+          </div>
+        </div>
+        <div class="banner-shape-1 bounce-y"></div>
+      </div>
+    </div>
+  </section>
+  <!-- End Banner Section -->
+
+  
+
+  <!-- About Section -->
+  <section class="about-section pt-0">
+    <div class="auto-container">
+      <div class="row">
+
+        <!-- Content Column -->
+        <div class="content-column col-lg-6 col-md-12 col-sm-12 order-lg-2" data-aos="fade-left">
+          <div class="inner-column">
+            <div class="sec-title">
+              <span class="sub-title" data-i18n="about.subtitle">GelServis: UYATUR'un Dijital Gücü</span>
+              <h2 data-i18n="about.title">Gelişmiş Teknolojimizle Personel ve Okul Taşımacılığını Dönüştürüyoruz</h2>
+              <div class="text" data-i18n="about.text">Operasyonel verimliliği artıran, KVKK uyumlu ve çevresel etkileri takip eden uçtan uca servis yönetimi çözümleri sunuyoruz.</div>
+            </div>
+            <blockquote class="blockquote-style-two" data-i18n="about.quote">GelServis, operasyonel maliyetleri düşürürken, yolcuların (Personel/Öğrenci/Ebeveyn) güven ve memnuniyetini en üst düzeye çıkarır.</blockquote>
+            <div class="bottom-box">
+              <!-- Features Block -->
+              <div class="features-outer">
+                <div class="feature-block">
+                  <i class="icon fal fa-route"></i> <span data-i18n="feature.route">Akıllı Rota Optimizasyonu</span>
+                </div>
+                <div class="feature-block">
+                  <i class="icon fal fa-user-shield"></i> <span data-i18n="feature.security">KVKK Uyumlu Güvenlik</span>
+                </div>
+                <a href="page-contact.html" class="theme-btn btn-style-one"><span class="btn-title" data-i18n="about.cta">Hemen Başvurun</span></a>
+              </div>
+
+              <div class="video-box" data-aos="fade-upp">
+                <figure class="image"><img src="https://via.placeholder.com/200x198" alt="GelServis mobil uygulaması"></figure>
+                <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="play-btn" data-fancybox="" data-caption=""><div class="icon-triangle fas fa-play"></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Column -->
+        <div class="image-column col-lg-6 col-md-12 col-sm-12">
+          <div class="inner-column">
+            <figure class="image reveal"><img src="images/banner/about1.png" alt="GelServis mobil uygulamasından rota takibi yapan yönetici" style="width: 480px; height: 600px; object-fit: cover; border-radius: 10px;"></figure>
+            <figure class="image-2" data-aos="fade-up"><img src="images/resource/about1-2.png" alt="UYATUR personel servisi gösterimi"></figure>
+            <figure class="image-3 reveal"><img src="images/banner/about2.png" alt="GelServis uygulaması ile canlı takip ekranı" style="width: 250px; height: 300px; object-fit: cover; border-radius: 10px;" ></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+   <!-- Service Section -->
+  <section class="service-section-five">
+    <div class="bg bg-image"></div>
+    <div class="auto-container">
+      <div class="sec-title text-center">
+        <span class="sub-title">GELSİRVİS HİZMETLERİ</span>
+        <h2 class="letters-slide-up text-split">İşletmeniz İçin En Akıllı ve Verimli <br>Ulaşım Çözümleri</h2>
+      </div>
+      <div class="row" data-aos="fade-left">
+        <div class="col-lg-4 col-sm-6">
+          <!-- Service Block -->
+          <div class="service-block-five">
+            <div class="inner-box">
+              <div class="image-box">
+                <figure class="image"><img src="https://via.placeholder.com/370x368" alt="Image"></figure>
+              </div>
+              <div class="content">
+                <h4 class="title"><a href="page-service-details.html">Kurumsal Personel Servisi</a></h4>
+                <div class="text">Personelinize özel akıllı rota ve canlı takip entegrasyonu. UYATUR güvencesiyle güvenli personel taşımacılığı.</div>
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="col-lg-4 col-sm-6">
+          <!-- Service Block -->
+          <div class="service-block-five">
+            <div class="inner-box">
+              <div class="image-box">
+                <figure class="image"><img src="https://via.placeholder.com/370x368" alt="Image"></figure>
+              </div>
+              <div class="content">
+                <h4 class="title"><a href="page-service-details.html">Öğrenci ve Okul Servis Yönetimi</a></h4>
+                <div class="text">Ebeveyn bilgilendirme, hostes takibi ve tam KVKK uyumu sağlayan güvenli taşıma yönetimi.</div>
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="col-lg-4 col-sm-6">
+          <!-- Service Block -->
+          <div class="service-block-five">
+            <div class="inner-box">
+              <div class="image-box">
+                <figure class="image"><img src="https://via.placeholder.com/370x368" alt="Image"></figure>
+              </div>
+              <div class="content">
+                <h4 class="title"><a href="page-service-details.html">Karbon Ayak İzi Raporlama</a></h4>
+                <div class="text">Operasyonel verimlilikle çevresel sürdürülebilirliğe katkı sağlayan otomatik CO2 hesaplama ve raporlama.</div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+<!-- Benefit Section -->
+  <section class="benefit-section-two">
+    <div class="auto-container">
+      <div class="sec-title text-center">
+        <span class="sub-title line-style">GELSİRVİS MOBİL UYGULAMA AVANTAJLARI</span>
+        <h2 class="letters-slide-up text-split">Şoför, Yolcu ve Kurum Yöneticisi için <br>Çığır Açan Özellikler</h2>
+      </div>
+      <div class="row">
+        <!-- Blocks Column -->
+        <div class="blocks-column col-lg-4 col-md-6 col-sm-6" data-aos="fade-right">
+          <div class="inner-column">
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-route"></i>
+                <div class="content">
+                  <h4 class="title">Dinamik Rota Optimizasyonu</h4>
+                  <div class="text">Yolcuların gelmeyeceği günleri bildirerek şoförün rotasını otomatik güncelleme ve verimli planlama.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-chair"></i>
+                <div class="content">
+                  <h4 class="title">Boş Koltuk Yönetimi</h4>
+                  <div class="text">Şoförün anlık boş kapasiteyi görüp rota üzerindeki ek yolcuları yönetmesine olanak tanır.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-gas-pump"></i>
+                <div class="content">
+                  <h4 class="title">Yakıt ve Servis Takibi</h4>
+                  <div class="text">Filo yönetimi için yakıt, sigorta ve teknik servis kayıtlarının merkezi takibi ve raporlaması.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="image-column col-lg-4 col-md-12 col-sm-12">
+          <div class="inner-column">
+            <figure class="image reveal overlay-anim"><i class="icon fas fa-shuttle-van" style="font-size: 200px; color: #ffcc00;"></i></figure>
+          </div>
+        </div>
+        <!-- Blocks Column -->
+        <div class="blocks-column style-two col-lg-4 col-md-6 col-sm-6" data-aos="fade-left">
+          <div class="inner-column">
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-map-marked-alt"></i>
+                <div class="content">
+                  <h4 class="title">Canlı Harita ve Konum Takibi</h4>
+                  <div class="text">Yolcuların ve ebeveynlerin servisin anlık konumunu uygulamadan izlemesi için konum paylaşımı.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-qrcode"></i>
+                <div class="content">
+                  <h4 class="title">QR Kodlu Biniş Sistemi</h4>
+                  <div class="text">Hızlı ve hatasız dijital yoklama ile yalnızca kayıtlı yolcuların binişine izin verir.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-star-half-alt"></i>
+                <div class="content">
+                  <h4 class="title">Puanlama ve Şikayet Modülü</h4>
+                  <div class="text">Hızlı geri bildirim, araç/şoför puanlaması ve bildirim tabanlı şikayet yönetimi.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Benefits Section -->
+
+
+  <!-- FAQ Section -->
+  <section class="faqs-section-two">
+    <div class="bg bg-image" style="background-image: url(images/background/bg-faq1.jpg);">
+      <div class="bg-shape2"></div>
+    </div>
+    <div class="auto-container">
+      <div class="row">
+        <!-- FAQ Column -->
+        <div class="faq-column col-lg-6">
+          <div class="inner-column">
+            <div class="sec-title">
+              <span class="sub-title">Sıkça Sorulan Sorular</span>
+              <h2 class="letters-slide-upp text-splitt">Kurumsal Müşteriler İçin Hızlı Yanıtlar</h2>
+            </div>
+            <ul class="accordion-box style-two wow fadeInLeft">
+              <!--Block-->
+              <li class="accordion block">
+                <div class="acc-btn">1. Kurumsal Başvuru Süreci Nasıldır?
+                  <div class="icon fa fa-chevron-right"></div>
+                </div>
+                <div class="acc-content">
+                  <div class="content">
+                    <div class="text">Bizimle iletişime geçerek demo talebi oluşturun; bölge, araç adedi ve çalışma saatlerinizi belirttiğinizde size özel teklif ve pilot uygulama planı sunuyoruz.</div>
+                  </div>
+                </div>
+              </li>
+              <!--Block-->
+              <li class="accordion block">
+                <div class="acc-btn active">2. Servisleri Nasıl Canlı Takip Edebilirim?
+                  <div class="icon fa fa-chevron-right"></div>
+                </div>
+                <div class="acc-content">
+                  <div class="content">
+                    <div class="text">GelServis mobil uygulaması ve web paneli üzerinden araçların anlık konumunu, tahmini varış sürelerini ve geçmiş rota kayıtlarını görebilir, bildirimlerle bilgilendirme sağlayabilirsiniz.</div>
+                  </div>
+                </div>
+              </li>
+              <!--Block-->
+              <li class="accordion block active-block">
+                <div class="acc-btn active">3. Kişisel Veriler (KVKK) Nasıl Korunuyor?
+                  <div class="icon fa fa-chevron-right"></div>
+                </div>
+                <div class="acc-content current">
+                  <div class="content">
+                    <div class="text">Veri işleme süreçlerimiz KVKK gereksinimlerine uygundur; veriler yetkisiz erişime karşı şifrelenir, saklama politikaları uygulanır ve talebe göre anonimleştirme sağlanır.</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-column col-lg-6">
+          <div class="inner-column wow fadeInRight">
+            <!-- Booking Form -->
+            <div class="booking-form-two">
+              <div class="bg bg-image2" style="background-image: url(images/background/bg-form1.png);"></div>
+              <div class="sec-title light text-center">
+                <span class="sub-title line-style">GELSİRVİS DEMO & TEKLİF TALEP FORMU</span>
+                <h2 class="letters-slide-upp text-splitt">Kurumunuz İçin Hemen Başvurun</h2>
+              </div>
+              <form method="get" action="#">
+                <div class="row gx-3">
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-name">İsim</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-name" name="name" placeholder="İsminiz" required>
+                      <i class="icon fal fa-user"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-phone">Telefon</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-phone" name="phone" placeholder="Telefon" required>
+                      <i class="icon fal fa-phone"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-company">Şirket / Kurum Adı</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-company" name="company" placeholder="Şirket / Kurum Adı" required>
+                      <i class="icon fal fa-building"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-employee-count">Çalışan Sayısı</label>
+                    <div class="input-outer">
+                      <input type="number" id="form-employee-count" name="employee_count" placeholder="Çalışan Sayısı" required>
+                      <i class="icon fal fa-users"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label for="form-region">Talep Edilen Bölge / Rota</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-region" name="region" placeholder="Örn: İstanbul Anadolu Yakası" required>
+                      <i class="icon fal fa-map-marker-alt"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-date">Talep Tarihi</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-date" name="date" placeholder="Tarih" required>
+                      <i class="icon fal fa-calendar-days"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-time">Tercih Edilen Saat</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-time" name="time" placeholder="Saat" required>
+                      <i class="icon fal fa-clock"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <button type="submit" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">DEMO VE TEKLİF TALEP ET</span></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--End FAQ Section -->
+
+
+
+
+          
+
+  <!-- Main Footer -->
+  <footer class="main-footer footer-style-two">
+    <div class="bg bg-pattern-4"></div>
+    <!-- Footer Top -->
+    <div class="footer-top">
+      <div class="auto-container">
+        <div class="inner-container">
+          <div class="top-left">
+            <div class="logo-box">
+              <div class="logo"><a href="index.html"><img src="images/logo-2.png" alt="Logo"></a></div>
+            </div>
+          </div>
+          <div class="top-center">
+            <div class="text">Authoritatively simplify open-source resources via backend visualize business e-markets before parallel.</div>
+          </div>
+          <div class="top-right">
+            <div class="info-btn">
+              <i class="icon fal fa-mobile"></i>
+              <div class="content">
+                <h5 class="title">Kurumsal İletişim</h5>
+                <a href="#" class="phone-no">5267-214-392</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widgets Section -->
+    <div class="widgets-section">
+      <div class="auto-container">
+        <div class="row">
+
+          <!-- Footer Column -->
+          <div class="footer-column col-lg-4 col-md-6 col-sm-12">
+            <div class="footer-widget about-widget">
+              <h5 class="widget-title">Download Mobile App</h5>
+              <div class="widget-content">
+                <div class="text">Competently re-engineer cross-media breed meta-services</div>
+                <div class="btn-box">
+                  <a href="#" class="image"><img src="images/icons/google-play-2.png" alt="Image"></a>
+                  <a href="#" class="image"><img src="images/icons/app-store-2.png" alt="Image"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer COlumn -->
+          <div class="footer-column col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget links-widget">
+              <h4 class="widget-title">Useful Links</h4>
+              <div class="widget-content">
+                <ul class="user-links two-column">
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="page-about.html">Hakkımızda</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#benefit-section-two">Hizmetlerimiz</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="page-faq.html">S.S.S.</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#">Blog</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#">KVKK ve Gizlilik</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#">Kariyer</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Column -->
+          <div class="footer-column col-lg-4 col-md-6 col-sm-12">
+            <div class="footer-widget newsletter-widget">
+              <h4 class="widget-title">Newsletter</h4>
+              <div class="widget-content">
+                <div class="text">Signup for our weekly newsletter or updates.</div>
+                <div class="newsletter-form">
+                  <form method="post" action="#">
+                    <div class="form-group">
+                      <div class="input-outer">
+                        <input type="email" name="email" placeholder="Enter Your email." required>
+                      </div>
+                      <button type="button" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Subscribe</span></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="auto-container">
+        <div class="inner-container">
+          <div class="copyright-text" data-i18n="footer.copy">© Copyright GelServis (UYATUR Dijital Turizm). Tüm Hakları Saklıdır.</div>
+          <ul class="footer-nav">
+            <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--End Main Footer -->
+
+</div><!-- End Page Wrapper -->
+
+<!-- Scroll To Top -->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+<script src="js/jquery.js"></script> 
+<script src="js/popper.min.js"></script>
+<!--Revolution Slider-->
+<script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="js/main-slider-script.js"></script>
+<!--Revolution Slider-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/splitType.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/odometer.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/script.js"></script>
+<script>
+(function(){
+  var translations = {
+    tr: {
+      title: 'GelServis | Akıllı Servis Yönetim Platformu',
+      preloader: { title: 'GelServis | Akıllı Servis Yönetim Platformu' },
+      nav: { home:'ANA SAYFA', services:'HİZMETLERİMİZ', about:'HAKKIMIZDA', faq:'S.S.S.', contact:'İLETİŞİM' },
+      header: { cta:'TEKLİF AL', langInfo: 'Dil: TR / EN' },
+      banner: { title:'GelServis: Servis Yönetiminde Güven, Verimlilik ve Yapay Zeka.', text:"Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.", cta:'Hizmetleri Keşfet' },
+      about: { subtitle:"GelServis: UYATUR'un Dijital Gücü", title:'Gelişmiş Teknolojimizle Personel ve Okul Taşımacılığını Dönüştürüyoruz', text:'Operasyonel verimliliği artıran, KVKK uyumlu ve çevresel etkileri takip eden uçtan uca servis yönetimi çözümleri sunuyoruz.', quote:"GelServis, operasyonel maliyetleri düşürürken, yolcuların (Personel/Öğrenci/Ebeveyn) güven ve memnuniyetini en üst düzeye çıkarır.", cta:'Hemen Başvurun' },
+      feature: { route:'Akıllı Rota Optimizasyonu', security:'KVKK Uyumlu Güvenlik' },
+      footer: { copy:'© Copyright GelServis (UYATUR Dijital Turizm). Tüm Hakları Saklıdır.' }
+    },
+    en: {
+      title: 'GelServis | Smart Service Management Platform',
+      preloader: { title: 'GelServis | Smart Service Management Platform' },
+      nav: { home:'HOME', services:'SERVICES', about:'ABOUT', faq:'FAQ', contact:'CONTACT' },
+      header: { cta:'GET A QUOTE', langInfo: 'Lang: TR / EN' },
+      banner: { title:'GelServis: Trust, Efficiency and AI in Service Management.', text:"Join GelServis via our mobile app; optimize routes and transparently report your Carbon Footprint. KVKK-compliant and live-tracking assurance.", cta:'Discover Services' },
+      about: { subtitle:'GelServis: UYATUR Digital Strength', title:'Transforming Staff and School Transport with Advanced Technology', text:'We offer end-to-end service management solutions that increase operational efficiency, ensure KVKK compliance and track environmental impact.', quote:'GelServis reduces operational costs while maximizing passenger (Staff/Student/Parent) safety and satisfaction.', cta:'Apply Now' },
+      feature: { route:'Smart Route Optimization', security:'KVKK Compliant Security' },
+      footer: { copy:'© Copyright GelServis (UYATUR Digital Tourism). All Rights Reserved.' }
+    }
+  };
+
+  function t(lang,key){
+    var parts = key.split('.');
+    var obj = translations[lang];
+    for(var i=0;i<parts.length;i++){
+      if(!obj) return '';
+      obj = obj[parts[i]];
+    }
+    return obj!=null?obj:'';
+  }
+
+  function applyTranslations(lang){
+    document.documentElement.lang = (lang==='tr')? 'tr' : 'en';
+    document.title = t(lang,'title') || document.title;
+    // update all elements with data-i18n
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for(var i=0;i<nodes.length;i++){
+      var el = nodes[i];
+      var key = el.getAttribute('data-i18n');
+      var val = t(lang,key);
+      if(val!==undefined && val!==''){
+        el.textContent = val;
+      }
+    }
+    // persist
+    try{ localStorage.setItem('site-lang', lang); }catch(e){}
+    var sel = document.getElementById('lang-select'); if(sel) sel.value = lang;
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('site-lang'); }catch(e){}
+    var browserDefault = (navigator.language && navigator.language.toLowerCase().indexOf('en')===0)?'en':'tr';
+    var lang = saved || browserDefault;
+    applyTranslations(lang);
+    var sel = document.getElementById('lang-select');
+    if(sel){ sel.addEventListener('change', function(){ applyTranslations(this.value); }); }
+  });
+})();
+</script>
+</body>
+</html>
