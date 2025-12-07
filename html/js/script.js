@@ -796,6 +796,18 @@ var THEMEMASCOT = {};
 
 		// Avoid flash of unstyled content
 		gsap.set(".text-split", { opacity: 1 });
+		
+		// Ensure letters-slide-up elements are properly initialized
+		gsap.set(".letters-slide-up.text-split", { 
+			opacity: 1, 
+			visibility: "visible", 
+			display: "block" 
+		});
+		gsap.set(".letters-slide-up.text-split .char", { 
+			opacity: 1, 
+			visibility: "visible", 
+			display: "inline-block" 
+		});
 	});
 
   /* ---------------------------------------------------------------------- */

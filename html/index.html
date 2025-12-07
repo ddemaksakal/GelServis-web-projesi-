@@ -28,8 +28,8 @@
   .header-top{height:64px}
   .header-top .inner-container{display:flex;align-items:center;justify-content:space-between;height:100%}
   .header-top .top-left,.header-top .top-right{display:flex;align-items:center}
-  /* Stack contact items vertically to match visual (phone above email) while keeping icons aligned */
-  .header-top .list-style-one{margin:0;padding:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  /* Display contact items side-by-side horizontally while keeping icons aligned */
+  .header-top .list-style-one{margin:0;padding:0;display:flex;flex-direction:row;gap:20px;align-items:center}
   .header-top .list-style-one li{display:flex;align-items:center;gap:10px}
   .header-top .list-style-one li a{white-space:nowrap}
   .header-lower .main-box{display:flex;align-items:center;justify-content:space-between}
@@ -67,9 +67,32 @@
     
   <!-- Preloader -->
   <div class="preloader"><h1 data-text="GelServis | Akıllı Servis Yönetim Platformu" data-i18n="preloader.title">GelServis | Akıllı Servis Yönetim Platformu</h1></div>
-  
-   <!-- Main Header-->
-  <header class="main-header header-style-one"> 
+  <!-- Main Header-->
+  <header class="main-header header-style-one ">
+    
+    <!-- Header Top -->
+    <div class="header-top">
+      <div class="auto-container">
+        <div class="inner-container">
+          <div class="top-left"> 
+            <!-- Info List -->
+            <ul class="list-style-one light">
+              <li><i class="fal fa-mobile"></i> <a href="tel:0123456789">+92 8475 904950</a></li>
+              <li><i class="fal fa-envelope"></i> <a href="mailto:info@anobtaxi.com" >info@anob-taxi.com</a></li>
+            </ul>
+          </div>
+          <div class="top-right">
+            <ul class="social-icon-one">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Top -->
     
     <div class="header-lower">
       <div class="auto-container"> 
@@ -105,7 +128,7 @@
             <button class="ui-btn search-btn light"> <span class="icon lnr lnr-icon-search"></span> </button>
             
             <!-- Btn Box -->
-            <div class="btn-box"> <a href="page-booking.html" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Book a Taxi</span></a> </div>
+            <div class="btn-box"> <a href="page-booking.html" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Görüşme Talep Et</span></a> </div>
             
             <!-- Mobile Nav toggler -->
             <div class="mobile-nav-toggler light"><span class="icon lnr-icon-bars"></span></div>
@@ -204,7 +227,7 @@
             <a href="page-services.html" class="theme-btn btn-style-one dark-line-two hover-light animate-3"><span class="btn-title" data-i18n="banner.cta">Hizmetleri Keşfet</span></a>
           </div>
         </div>
-   
+        <div class="banner-shape-1 bounce-y"></div>
       </div>
       <div class="slide-item">
         <div class="bg bg-image" style="background-image: url(images/banner/banner2.png);"></div>
@@ -273,10 +296,9 @@
   <!-- End About Section -->
    <!-- Service Section -->
   <section class="service-section-five">
-    <div class="bg bg-image"></div>
     <div class="auto-container">
       <div class="sec-title text-center">
-        <span class="sub-title">GELSİRVİS HİZMETLERİ</span>
+        <span class="sub-title">GELSERVİS  HİZMETLERİ</span>
         <h2 class="letters-slide-up text-split">İşletmeniz İçin En Akıllı ve Verimli <br>Ulaşım Çözümleri</h2>
       </div>
       <div class="row" data-aos="fade-left">
@@ -331,7 +353,7 @@
   <section class="benefit-section-two">
     <div class="auto-container">
       <div class="sec-title text-center">
-        <span class="sub-title line-style">GELSİRVİS MOBİL UYGULAMA AVANTAJLARI</span>
+        <span class="sub-title line-style">GELSERVİS MOBİL UYGULAMA AVANTAJLARI</span>
         <h2 class="letters-slide-up text-split">Şoför, Yolcu ve Kurum Yöneticisi için <br>Çığır Açan Özellikler</h2>
       </div>
       <div class="row">
@@ -472,9 +494,9 @@
           <div class="inner-column wow fadeInRight">
             <!-- Booking Form -->
             <div class="booking-form-two">
-              <div class="bg bg-image2" style="background-image: url(images/background/bg-form1.png);"></div>
+              <div  style="background-image: url(images/banner/bg2.jpg);"></div>
               <div class="sec-title light text-center">
-                <span class="sub-title line-style">GELSİRVİS DEMO & TEKLİF TALEP FORMU</span>
+                <span class="sub-title line-style">GELSERVİS DEMO & TEKLİF TALEP FORMU</span>
                 <h2 class="letters-slide-upp text-splitt">Kurumunuz İçin Hemen Başvurun</h2>
               </div>
               <form method="get" action="#">
@@ -743,6 +765,41 @@
     applyTranslations(lang);
     var sel = document.getElementById('lang-select');
     if(sel){ sel.addEventListener('change', function(){ applyTranslations(this.value); }); }
+  });
+  
+  // Ensure service and benefit section h2 elements are visible
+  window.addEventListener('load', function() {
+    // Force visibility for service section h2
+    var serviceHeading = document.querySelector('.service-section-five .sec-title h2.letters-slide-up.text-split');
+    if (serviceHeading) {
+      serviceHeading.style.opacity = '1';
+      serviceHeading.style.visibility = 'visible';
+      serviceHeading.style.display = 'block';
+      
+      // Also ensure child char elements are visible
+      var serviceChars = serviceHeading.querySelectorAll('.char');
+      serviceChars.forEach(function(char) {
+        char.style.opacity = '1';
+        char.style.visibility = 'visible';
+        char.style.display = 'inline-block';
+      });
+    }
+    
+    // Force visibility for benefit section h2
+    var benefitHeading = document.querySelector('.benefit-section-two .sec-title h2.letters-slide-up.text-split');
+    if (benefitHeading) {
+      benefitHeading.style.opacity = '1';
+      benefitHeading.style.visibility = 'visible';
+      benefitHeading.style.display = 'block';
+      
+      // Also ensure child char elements are visible
+      var benefitChars = benefitHeading.querySelectorAll('.char');
+      benefitChars.forEach(function(char) {
+        char.style.opacity = '1';
+        char.style.visibility = 'visible';
+        char.style.display = 'inline-block';
+      });
+    }
   });
 })();
 </script>
