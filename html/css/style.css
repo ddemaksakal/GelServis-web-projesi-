@@ -7275,7 +7275,8 @@ Main Header
   display: inline-block;
   position: relative;
   font-size: 54px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
@@ -7286,7 +7287,7 @@ Main Header
   height: calc(100% + 10px);
   left: 34px;
   position: absolute;
-  top: -5px;
+  top: 15px;
   -webkit-transform: skewX(-14deg);
   transform: skewX(-14deg);
   z-index: -1;
@@ -7836,6 +7837,18 @@ Main Header
      object-fit: cover;
   position: relative;
   width: 100%;
+  
+}
+.about-section .image-column .inner-column .image-2 img {
+    /* Kare Boyut Zorlaması (Yuvarlak olması için width=height olmalı) */
+    width: 200px !important;
+    height: 200px !important;
+    
+    /* Yuvarlak Yapma Kodu */
+    border-radius: 50% !important; 
+    
+    /* Görüntü kalitesini korumak için */
+    object-fit: cover !important; 
 }
 @media (max-width: 1199.98px) {
   .about-section .image-column .inner-column .image {
@@ -9163,145 +9176,88 @@ Main Header
 }
 
 /*** 
+/* ====================================================================
+  HİZMETLER BÖLÜMÜ - NİHAİ VE BASİT ÇÖZÜM
+  Görseli eğimli keserken, sarı bloğu arkada tutar.
 ====================================================================
-  Services Section
-====================================================================
-***/
-.service-section {
-  position: relative;
-  padding: 120px 0 65px;
-}
-@media (max-width: 991.98px) {
-  .service-section {
-    padding-bottom: 90px;
-  }
-}
-.service-section .outer-box {
-  position: relative;
-  padding-bottom: 20px;
-}
-@media (max-width: 991.98px) {
-  .service-section .outer-box {
-    padding-bottom: 0;
-  }
-}
-.service-section .outer-box .bg-overlay-8 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-@media (max-width: 991.98px) {
-  .service-section .outer-box .bg-overlay-8 {
-    display: none;
-  }
+*/
+
+/* 1. Ana Kapsayıcı Ayarları */
+.service-block-five .inner-box {
+    position: relative;
+    overflow: hidden; 
+    text-align: center;
+    background-color: #fff;
+    padding-bottom: 30px; 
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-.service-block {
-  margin-bottom: 30px;
+
+/* 2. Resim Kapsayıcısı (image-box) Ayarları */
+.service-block-five .inner-box .image-box {
+    position: relative;
+    display: block; 
+    overflow: hidden;
+    margin-bottom: 30px;
+    width: 100%; 
+    height: 250px; 
+    
+    /* GÖRSELİN KENDİSİNİ KESME: Bu kısım o çapraz kesimi oluşturur */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    
+    border-radius: 8px 8px 0 0;
 }
-.service-block .inner-box {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding-bottom: 55px;
+
+
+/* 3. Görselin Kendisi */
+.service-block-five .inner-box .image-box figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2; /* Görsel, dekoratif bloğun üstünde durur */
 }
-.service-block .inner-box::before {
-  position: absolute;
-  left: 80px;
-  bottom: 0;
-  width: 200px;
-  height: 381px;
-  -webkit-transform: skewX(-25deg);
-  transform: skewX(-20deg);
-  content: "";
-  background-color: #f7f6f2;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
+
+.service-block-five .inner-box .image-box figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
 }
-.service-block .inner-box:hover:before {
-  background-color: var(--theme-color1);
-  opacity: 0.3;
+
+
+/* 4. DEKORATİF BLOK (SARI/TURUNCU ALAN) - Görselin Kesilen Kısmını Doldurur */
+.service-block-five .inner-box .image-box::before {
+    content: "";
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    height: 30%; /* Kesilen alt kısmı dolduracak kadar yükseklik */
+    z-index: 1; /* Görselin (z-index: 2) ARKASINDA durur */
+    
+    /* Başlangıç Rengi (Turuncu) */
+    background-color: var(--theme-color1, #ffc400); /* Sarı tonunu kullanıyoruz */
+    
+    /* Eğiklik için (Yumuşak eğim) */
+    transform: skewY(-5deg); 
+    transform-origin: top left;
+    
+    transition: all 0.3s ease;
 }
-.service-block .inner-box:hover .image-box:after {
-  height: 100%;
+
+/* 5. HOVER EFEKTİ */
+
+.service-block-five .inner-box:hover .image-box figure img {
+    /* Görsel hafifçe yaklaşıyor */
+    transform: scale(1.08); 
 }
-.service-block .inner-box:hover .image-box .image {
-  border-color: var(--theme-color1);
-}
-.service-block .inner-box:hover .image-box .image img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-.service-block .inner-box .image-box {
-  position: relative;
-  display: inline-block;
-  padding: 14px;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-bottom: 30px;
-}
-@media (max-width: 991.98px) {
-  .service-block .inner-box .image-box {
-    margin-bottom: 10px;
-  }
-}
-.service-block .inner-box .image-box:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  border: 1px solid var(--theme-color1);
-}
-.service-block .inner-box .image-box:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  border-radius: 50%;
-  background: var(--theme-color1);
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-.service-block .inner-box .image-box .image {
-  position: relative;
-  border-radius: 50%;
-  margin-bottom: 0;
-  overflow: hidden;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-.service-block .inner-box .image-box .image img {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 3;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-.service-block .inner-box .content {
-  position: relative;
-  text-align: center;
-}
-.service-block .inner-box .content .title {
-  position: relative;
-  color: var(--theme-color-dark);
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-.service-block .inner-box .content .text {
-  position: relative;
-  margin-bottom: 0;
-  max-width: 320px;
-  margin: 0 auto;
+
+.service-block-five .inner-box:hover .image-box::before {
+    /* Turuncu alan siyaha dönüyor */
+    background-color: var(--theme-color-dark, #333333); 
 }
 
 /*** 
@@ -9898,6 +9854,9 @@ Main Header
 ***/
 .service-section-five {
   background-color: #f5f5f5;
+  background-image: url(../images/background/bg-services5.png);
+  background-position: center center;
+  background-repeat: no-repeat;
   position: relative;
   padding: 120px 0 60px;
 }
@@ -9945,90 +9904,177 @@ Main Header
   }
 }
 .service-section-five .sec-title {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  margin-top: -20px;
 }
 @media (max-width: 1199.98px) {
   .service-section-five .sec-title {
     margin-bottom: 60px;
+    margin-top: -15px;
   }
 }
 .service-section-five .default-dots .owl-dots {
   margin-top: 40px;
 }
 
-.service-block-five {
-  margin-bottom: 30px;
+.service-item {
+  margin-bottom: 50px;
 }
-.service-block-five .inner-box {
+
+/* Image Block Styles */
+.service-image-block {
   position: relative;
-  overflow: hidden;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
+  margin-bottom: 20px;
+  overflow: visible;
 }
-.service-block-five .inner-box:hover .image-box:before {
-  background-color: var(--theme-color-dark);
-}
-.service-block-five .inner-box:hover .image-box .image img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-.service-block-five .inner-box .image-box {
+
+.service-image-block .image-box {
   position: relative;
+  overflow: visible;
+  /* Create skewed parallelogram frame for the image container */
+  transform: skew(0deg, -5deg);
 }
-.service-block-five .inner-box .image-box:before {
-  background-color: var(--theme-color1);
-  clip-path: polygon(0 27.5%, 100% 0, 100% 74%, 0 99%);
-  content: "";
-  position: absolute;
-  width: calc(100% - 50px);
-  height: 100%;
-  left: 30px;
-  bottom: -26px;
-  -webkit-transform: rotate(0.5deg);
-          transform: rotate(0.5deg);
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-.service-block-five .inner-box .image-box .image {
+
+/* Ensure the image maintains its aspect ratio within the skewed container */
+.service-image-block .image-box .servicesec {
   position: relative;
   margin-bottom: 0;
   overflow: hidden;
-  clip-path: polygon(0 27.5%, 100% 0, 100% 74%, 0 99%);
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
+  transform: skew(0deg, 5deg);
+  display: block;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
-.service-block-five .inner-box .image-box .image img {
+
+.service-image-block .image-box .servicesec img {
   position: relative;
   display: block;
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 250px;
+  object-fit: cover;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-.service-block-five .inner-box .content {
+
+/* Diagonal orange stripe at the bottom of each image */
+.service-image-block .diagonal-stripe {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60%;
+  height: 50px;
+  background-color: var(--theme-color1); /* Corporate orange color */
+  transform: skew(0deg, -5deg);
+  z-index: -1;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+/* Text Block Styles */
+.service-text-block {
   position: relative;
   text-align: center;
-  padding: 46px 30px 0;
+  padding: 50px 20px 20px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  transition: all 300ms ease;
 }
-@media (max-width: 1199.98px) {
-  .service-block-five .inner-box .content {
-    padding: 30px 15px 0;
-  }
+
+.service-text-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
-.service-block-five .inner-box .content .title {
+
+.service-text-block .title {
   position: relative;
   color: var(--theme-color-dark);
-  margin-bottom: 17px;
+  margin-bottom: 15px;
+  font-size: 22px;
+  line-height: 1.3;
 }
-.service-block-five .inner-box .content .title:hover {
-  color: var(--theme-color-dark);
+
+.service-text-block .title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 300ms ease;
 }
-.service-block-five .inner-box .content .text {
+
+.service-text-block .title a:hover {
+  color: var(--theme-color1);
+}
+
+.service-text-block .text {
   position: relative;
   line-height: 26px;
-  margin-bottom: 20px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Hover effects for image block */
+.service-image-block:hover .diagonal-stripe {
+  background-color: var(--theme-color-dark);
+}
+
+.service-image-block:hover .image-box .servicesec img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1199.98px) {
+  .service-image-block .image-box .servicesec img {
+    height: 220px;
+  }
+  
+  .service-image-block .diagonal-stripe {
+    height: 30px;
+    bottom: -14px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .service-item {
+    margin-bottom: 40px;
+  }
+  
+  .service-image-block .image-box .servicesec img {
+    height: 200px;
+  }
+  
+  .service-image-block .diagonal-stripe {
+    height: 30px;
+    bottom: -15px;
+  }
+  
+  .service-text-block {
+    padding: 25px 15px 15px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .service-item {
+    margin-bottom: 30px;
+  }
+  
+  .service-image-block .image-box .servicesec img {
+    height: 200px;
+  }
+  
+  .service-image-block .diagonal-stripe {
+    height: 30px;
+    bottom: -10px;
+  }
+  
+  .service-text-block {
+    padding: 20px 10px 10px;
+    margin-top: 25px;
+  }
+  
+  .service-text-block .title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
 }
 
 /***
