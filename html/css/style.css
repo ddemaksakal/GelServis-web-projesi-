@@ -2996,7 +2996,8 @@ Main Header
   }
 }
 .header-style-one .header-lower .main-box .outer-box .btn-box .theme-btn {
-  padding: 22px 92px 22px 47px;
+  padding: 20px 50px 20px 30px;
+  font-size: 18px;
 }
 
 
@@ -4643,7 +4644,7 @@ Main Header
   }
 }
 .faqs-section .faq-column .inner-column .sec-title {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .faqs-section .image-column {
   position: relative;
@@ -4807,12 +4808,20 @@ Main Header
     padding: 0 0 90px;
   }
 }
-.faqs-section-two .booking-form-two {
-  margin: 0 auto;
-}
+
 .faqs-section-two .bg-image {
   height: 370px;
+  background-position: center center !important;
+  background-size: cover !important;
+  top: 0 !important;
 }
+.faqs-section-two .bg-image {
+  height: 400px;
+  background-position: center center !important;
+  background-size: cover !important;
+  top: 0 !important;
+}
+
 @media (max-width: 991.98px) {
   .faqs-section-two .bg-image {
     display: none;
@@ -5127,6 +5136,18 @@ Main Header
 .banner-section .content-box {
   position: relative;
   padding: 137px 0 320px;
+  z-index: 2;
+}
+
+.banner-section .slide-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.472); /* Semi-transparent dark overlay */
+  z-index: 1;
 }
 @media (max-width: 1199.98px) {
   .banner-section .content-box {
@@ -7178,11 +7199,11 @@ Main Header
 ***/
 .benefit-section-two {
   position: relative;
-  padding: 120px 0 54px;
+  padding: 70px 0 54px;
 }
 @media (max-width: 1199.98px) {
   .benefit-section-two {
-    padding: 84px 0 15px;
+    padding:  40px 0 15px;
   }
 }
 @media (max-width: 767.98px) {
@@ -7206,19 +7227,21 @@ Main Header
   position: relative;
   margin-top: 0;
 }
+
 .benefit-section-two .image-column .inner-column:before {
   background-color: var(--theme-color-dark);
   content: "";
-  width: 255px;
-  height: 100%;
-  max-height: 498px;
-  right: 135px;
+  width: 330px;
+  height: 500px;
+  max-height: 1000px;
+  right: 100px;
   position: absolute;
-  top: 50%;
+  top: 10%;
   -webkit-transform: skewX(-18deg) translateY(-50%);
           transform: skewX(-18deg) translateY(-50%);
   z-index: -1;
 }
+
 .benefit-section-two .image-column .inner-column .image {
   position: relative;
   display: block;
@@ -14393,7 +14416,7 @@ Main Header
 }
 .booking-section-two .form-column .booking-form.style-two {
   position: relative;
-  padding: 48px 52px 44px;
+  padding: 60px 52px 44px;
   border: none;
   margin-bottom: 0;
   background-color: var(--theme-color-dark);
@@ -14510,8 +14533,25 @@ Main Header
   position: relative;
   max-width: 758px;
   padding: 70px 50px 45px;
-  margin-bottom: 70px;
-  background-color: var(--theme-color-dark);
+  margin-bottom: 10px;
+  background-image: url(../images/background/form1.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50%;
+  border-radius: 25px;
+}
+
+.booking-form-two::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: 1;
+  border-radius: 20px;
 }
 @media (max-width: 991.98px) {
   .booking-form-two {
@@ -14525,20 +14565,15 @@ Main Header
   }
 }
 .booking-form-two .sec-title {
-  margin-bottom: 42px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2; /* Above the overlay */
 }
-.booking-form-two .bg-image2::after {
-  background-image: url(../images/icons/shape-6.png);
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 10px;
-}
+
 .booking-form-two .form-group {
   position: relative;
   margin-bottom: 18px;
+  z-index: 2; /* Above the overlay */
 }
 .booking-form-two .form-group:last-child {
   margin-bottom: 0;
@@ -14556,6 +14591,8 @@ Main Header
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  position: relative;
+  z-index: 2; /* Above the overlay */
 }
 .booking-form-two .boxed-outer-box .boxed {
   width: 100%;
@@ -14623,6 +14660,8 @@ Main Header
 .booking-form-two .theme-btn {
   margin-top: 39px;
   padding: 16.5px 85px 16.5px 50px;
+  position: relative;
+  z-index: 2; /* Above the overlay */
 }
 @media (max-width: 1199.98px) {
   .booking-form-two .theme-btn {
@@ -20751,3 +20790,4 @@ Sidebar
     margin-right: 0;
   }
 }
+
