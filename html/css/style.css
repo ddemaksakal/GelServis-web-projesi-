@@ -3688,12 +3688,15 @@ Main Header
   font-weight: var(--sec-title-font-weight);
   margin-bottom: 0;
   letter-spacing: -0.03em;
-  line-height: 1.09;
+  line-height: 1.2;
   z-index: 2;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 @media (max-width: 1199.98px) {
   .sec-title h2 {
-    line-height: 1em;
+    line-height: 1.2em;
     font-size: 48px;
   }
 }
@@ -4417,6 +4420,11 @@ Main Header
   display: block !important;
   transform: translate(0, 0) !important;
   position: relative !important;
+  overflow: visible !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  line-height: 1.2 !important;
 }
 
 .service-section-five .sec-title h2.letters-slide-up.text-split .char,
@@ -4426,6 +4434,11 @@ Main Header
   display: inline-block !important;
   transform: translate(0, 0) !important;
   position: relative !important;
+  overflow: visible !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  line-height: 1.2 !important;
 }
 
 /* Override any animation states that might hide the elements */
@@ -4448,6 +4461,11 @@ Main Header
 
 .benefit-section-two .sec-title h2.letters-slide-up.text-split .char[style*="visibility"] {
   visibility: visible !important;
+}
+
+/* Ensure no clipping occurs on the service section heading */
+.service-section-five .sec-title {
+  overflow: visible !important;
 }
 
 .benefit-section-two .sec-title h2.letters-slide-up.text-split .char[style*="display"] {
@@ -9199,11 +9217,7 @@ Main Header
 }
 
 /*** 
-/* ====================================================================
-  HİZMETLER BÖLÜMÜ - NİHAİ VE BASİT ÇÖZÜM
-  Görseli eğimli keserken, sarı bloğu arkada tutar.
-====================================================================
-*/
+
 
 /* 1. Ana Kapsayıcı Ayarları */
 .service-block-five .inner-box {
@@ -9927,8 +9941,8 @@ Main Header
   }
 }
 .service-section-five .sec-title {
-  margin-bottom: 50px;
-  margin-top: -20px;
+  margin-bottom: 60px;
+  margin-top: -50px;
 }
 @media (max-width: 1199.98px) {
   .service-section-five .sec-title {
@@ -10012,6 +10026,7 @@ Main Header
 .service-text-block .title {
   position: relative;
   color: var(--theme-color-dark);
+  padding: 0 0 10px 0;
   margin-bottom: 15px;
   font-size: 22px;
   line-height: 1.3;
@@ -20791,3 +20806,77 @@ Sidebar
   }
 }
 
+
+/* Footer Contact Widget Styles */
+.footer-widget.contact-widget .contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-widget.contact-widget .contact-list li {
+  color: #b7b7b7;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-widget.contact-widget .contact-list li i {
+  margin-right: 10px;
+  min-width: 20px;
+  color: var(--theme-color1);
+}
+
+.footer-widget.contact-widget .contact-list li a {
+  color: inherit;
+  display: inline-block;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.footer-widget.contact-widget .contact-list li a:hover {
+  color: var(--theme-color1);
+}
+
+/* Improved Useful Links Styling */
+.user-links {
+  display: block;
+  flex-wrap: wrap;
+}
+
+.user-links li {
+  color: #b7b7b7;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 12px;
+  position: relative;
+  width: 100%;
+  padding-right: 0;
+}
+
+.user-links li i {
+  margin-right: 10px;
+  color: var(--theme-color1);
+}
+
+.user-links li a {
+  color: inherit;
+  display: inline-block;
+  position: relative;
+  transition: all 300ms ease;
+}
+
+.user-links li a:hover {
+  color: var(--theme-color1);
+  padding-left: 5px;
+}
+
+/* Footer column spacing adjustments */
+@media (max-width: 1199.98px) {
+  .main-footer .footer-column {
+    margin-bottom: 30px;
+  }
+}

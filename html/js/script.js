@@ -464,16 +464,15 @@ var THEMEMASCOT = {};
 			var outerBox = $(this).parents('.accordion-box');
 			var target = $(this).parents('.accordion');
 
-			if ($(this).hasClass('active') !== true) {
-				$(outerBox).find('.accordion .acc-btn').removeClass('active ');
-			}
-
-			if ($(this).next('.acc-content').is(':visible')) {
-				return false;
+			// Toggle the clicked accordion
+			if ($(this).hasClass('active')) {
+				// Close the clicked accordion
+				$(this).removeClass('active');
+				target.removeClass('active-block');
+				$(this).next('.acc-content').slideUp(300);
 			} else {
+				// Open the clicked accordion
 				$(this).addClass('active');
-				$(outerBox).children('.accordion').removeClass('active-block');
-				$(outerBox).find('.accordion').children('.acc-content').slideUp(300);
 				target.addClass('active-block');
 				$(this).next('.acc-content').slideDown(300);
 			}
