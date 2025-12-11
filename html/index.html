@@ -52,6 +52,168 @@
     .header-top .inner-container{flex-wrap:wrap}
     .header-lower .nav-outer{order:2;width:100%}
   }
+  
+  /* Custom style to reduce the width of the "Hizmetleri Keşfet" button */
+  .banner-section .btn-style-one {
+    padding: 24px 40px 20px 40px; /* Reduced from 90px right padding and 60px left padding */
+  }
+  
+  /* Flag-based language selector styles */
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+  }
+  
+  .lang-selected {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-selected:hover {
+    box-shadow: 0 0 0 3px rgba(34,150,243,0.08);
+  }
+  
+  .lang-flag {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  
+  /* Corrected Turkish flag with proper red background */
+  .flag-tr {
+    background-color: #e30a17;
+    position: relative;
+  }
+  
+  .flag-tr::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .flag-tr::after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #e30a17;
+    border-radius: 50%;
+  }
+  
+  .flag-en {
+    background: linear-gradient(
+      to bottom,
+      #012169 0%,
+      #012169 33.33%,
+      #fff 33.33%,
+      #fff 66.66%,
+      #c8102e 66.66%,
+      #c8102e 100%
+    );
+  }
+  
+  .flag-de {
+    background: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 33.33%,
+      #dd0000 33.33%,
+      #dd0000 66.66%,
+      #ffce00 66.66%,
+      #ffce00 100%
+    );
+  }
+  
+  .lang-arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+  }
+  
+  .lang-dropdown.open {
+    display: block;
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+  
+  .lang-option:last-child {
+    border-bottom: none;
+  }
+  
+  .lang-option:hover {
+    background: #f8f9fa;
+  }
+  
+  .lang-option .lang-flag {
+    margin-right: 12px;
+  }
+  
+  .lang-name {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Small screen adjustments */
+  @media (max-width: 600px) {
+    .lang-selector {
+      margin-right: 8px;
+    }
+    
+    .lang-selected {
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+    
+    .lang-dropdown {
+      min-width: 150px;
+    }
+    
+    .lang-name {
+      font-size: 13px;
+    }
+  }
 </style>
 
 <!-- Responsive -->
@@ -82,6 +244,28 @@
             </ul>
           </div>
           <div class="top-right">
+            <!-- Flag-based Language Selector -->
+            <div class="lang-selector">
+              <div class="lang-selected">
+                <div class="lang-flag flag-tr"></div>
+                <span class="lang-text">Türkçe</span>
+                <span class="lang-arrow">▼</span>
+              </div>
+              <div class="lang-dropdown">
+                <div class="lang-option" data-lang="tr">
+                  <div class="lang-flag flag-tr"></div>
+                  <span class="lang-name">Türkçe</span>
+                </div>
+                <div class="lang-option" data-lang="en">
+                  <div class="lang-flag flag-en"></div>
+                  <span class="lang-name">İngilizce</span>
+                </div>
+                <div class="lang-option" data-lang="de">
+                  <div class="lang-flag flag-de"></div>
+                  <span class="lang-name">Almanca</span>
+                </div>
+              </div>
+            </div>
             <ul class="social-icon-one">
               <li><a href="#"><i class="fab fa-facebook"></i></a></li>
               <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -811,6 +995,75 @@
       });
     }
   };
+  
+  // Language selector functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const langSelector = document.querySelector('.lang-selector');
+    const langSelected = document.querySelector('.lang-selected');
+    const langDropdown = document.querySelector('.lang-dropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const langText = document.querySelector('.lang-text');
+    
+    // Set default language to Turkish
+    let currentLang = localStorage.getItem('site-lang') || 'tr';
+    
+    // Update the displayed language
+    function updateLanguageDisplay(lang) {
+      const selectedOption = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+      if (selectedOption) {
+        const flagClass = selectedOption.querySelector('.lang-flag').className.split(' ').find(cls => cls.startsWith('flag-'));
+        const langName = selectedOption.querySelector('.lang-name').textContent;
+        
+        // Update the selected language display
+        document.querySelector('.lang-selected .lang-flag').className = 'lang-flag ' + flagClass;
+        langText.textContent = langName;
+      }
+    }
+    
+    // Initialize language display
+    updateLanguageDisplay(currentLang);
+    
+    // Toggle dropdown visibility
+    langSelected.addEventListener('click', function(e) {
+      e.stopPropagation();
+      langDropdown.classList.toggle('open');
+      // Rotate arrow
+      const arrow = document.querySelector('.lang-arrow');
+      if (langDropdown.classList.contains('open')) {
+        arrow.innerHTML = '▲';
+      } else {
+        arrow.innerHTML = '▼';
+      }
+    });
+    
+    // Close dropdown when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (!langSelector.contains(e.target)) {
+        langDropdown.classList.remove('open');
+        document.querySelector('.lang-arrow').innerHTML = '▼';
+      }
+    });
+    
+    // Handle language selection
+    langOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        const selectedLang = this.getAttribute('data-lang');
+        
+        // Save to localStorage
+        localStorage.setItem('site-lang', selectedLang);
+        
+        // Update display
+        updateLanguageDisplay(selectedLang);
+        
+        // Close dropdown
+        langDropdown.classList.remove('open');
+        document.querySelector('.lang-arrow').innerHTML = '▼';
+        
+        // Reload the page to prepare for multilingual structure
+        location.reload();
+      });
+    });
+  });
 })();
 </script>
 </body>
