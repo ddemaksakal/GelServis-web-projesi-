@@ -228,7 +228,7 @@
 <div class="page-wrapper">
     
   <!-- Preloader -->
-  <div class="preloader"><h1 data-text="GelServis | Akıllı Servis Yönetim Platformu" data-i18n="preloader.title">GelServis | Akıllı Servis Yönetim Platformu</h1></div>
+  <div class="preloader"><h1 data-text="GEL SERVİS" data-i18n="preloader.title">GEL SERVİS</h1></div>
   <!-- Main Header-->
   <header class="main-header header-style-one ">
     
@@ -295,7 +295,7 @@
           <div class="nav-outer">
             <nav class="nav main-menu">
               <ul class="navigation">
-                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="#" class="scroll-to-top-link">Ana Sayfa</a></li>
                 <li><a href="#service-section">Hizmetlerimiz</a></li>
                 <li><a href="#about-section">Hakkımızda</a></li>
                 <li><a href="#faq-section">S.S.S</a></li>
@@ -874,7 +874,7 @@
   var translations = {
     tr: {
       title: 'GelServis | Akıllı Servis Yönetim Platformu',
-      preloader: { title: 'GelServis | Akıllı Servis Yönetim Platformu' },
+      preloader: { title: 'GEL SERVİS' },
       nav: { home:'ANA SAYFA', services:'HİZMETLERİMİZ', about:'HAKKIMIZDA', faq:'S.S.S.', contact:'İLETİŞİM' },
       header: { cta:'TEKLİF AL', langInfo: 'Dil: TR / EN' },
       banner: { title:'GelServis: Servis Yönetiminde Güven, Hız Ve Verimlilik', text:"Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.", cta:'Hizmetleri Keşfet' },
@@ -884,7 +884,7 @@
     },
     en: {
       title: 'GelServis | Smart Service Management Platform',
-      preloader: { title: 'GelServis | Smart Service Management Platform' },
+      preloader: { title: 'GEL SERVİS' },
       nav: { home:'HOME', services:'SERVICES', about:'ABOUT', faq:'FAQ', contact:'CONTACT' },
       header: { cta:'GET A QUOTE', langInfo: 'Lang: TR / EN' },
       banner: { title:'GelServis: Trust, Speed and Efficiency in Service Management.', text:"Join GelServis via our mobile app; optimize routes and transparently report your Carbon Footprint. KVKK-compliant and live-tracking assurance.", cta:'Discover Services' },
@@ -1063,6 +1063,23 @@
         location.reload();
       });
     });
+  });
+  
+  // Smooth scrolling for "Ana Sayfa" link
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopLink = document.querySelector('.scroll-to-top-link');
+    
+    if (scrollToTopLink) {
+      scrollToTopLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Smooth scroll to top of the page
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
   });
 })();
 </script>
