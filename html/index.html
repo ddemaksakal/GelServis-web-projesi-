@@ -58,13 +58,6 @@
     padding: 24px 40px 20px 40px; /* Reduced from 90px right padding and 60px left padding */
   }
   
-  /* Custom style for FAQ section heading */
-  .faqs-section .sec-title h2 {
-    font-size: 32px;
-    color: #000000;
-    font-weight: bold;
-  }
-  
   /* Flag-based language selector styles */
   .lang-selector {
     position: relative;
@@ -235,7 +228,7 @@
 <div class="page-wrapper">
     
   <!-- Preloader -->
-  <div class="preloader"><h1 data-text="GelServis" data-i18n="preloader.title">GelServis</h1></div>
+  <div class="preloader"><h1 data-text="GEL SERVİS" data-i18n="preloader.title">GEL SERVİS</h1></div>
   <!-- Main Header-->
   <header class="main-header header-style-one ">
     
@@ -302,11 +295,11 @@
           <div class="nav-outer">
             <nav class="nav main-menu">
               <ul class="navigation">
-                <li><a href="#" class="home-link">Ana Sayfa</a></li>
-                <li><a href="#about-section">Hakkımızda</a></li>
+                <li><a href="#" class="scroll-to-top-link">Ana Sayfa</a></li>
                 <li><a href="#service-section">Hizmetlerimiz</a></li>
-                <li><a href="#faqs-section">S.S.S</a></li>
-                <li><a href="page-contact.html">İletişim</a></li>
+                <li><a href="#about-section">Hakkımızda</a></li>
+                <li><a href="#faq-section">S.S.S</a></li>
+                <li><a href="#booking-form">İletişim</a></li>
               </ul>
             </nav>
           </div>
@@ -638,16 +631,20 @@
   </section>
   <!-- End Benefits Section -->
 
-  <!-- FAQ 1 Section -->
-  <section class="faqs-section" id="faqs-section">
+
+  <!-- FAQ Section -->
+  <section class="faqs-section-two" id="faq-section">
+    <div class="bg bg-image" style="background-image: url('images/banner/banner1.png');">
+      <div class="bg-shape2"></div>
+    </div>
     <div class="auto-container">
       <div class="row">
         <!-- FAQ Column -->
-        <div class="faq-column col-xl-5 col-lg-12">
+        <div class="faq-column col-lg-6">
           <div class="inner-column">
             <div class="sec-title">
               <span class="sub-title">Sıkça Sorulan Sorular</span>
-              <h2 class="letters-slide-up text-split">Kurumsal Müşteriler İçin Hızlı Yanıtlar</h2>
+              <h2 class="letters-slide-upp text-splitt">Kurumsal Müşteriler İçin Hızlı Yanıtlar</h2>
             </div>
             <ul class="accordion-box style-two wow fadeInLeft">
               <!--Block-->
@@ -663,7 +660,7 @@
               </li>
               <!--Block-->
               <li class="accordion block">
-                <div class="acc-btn">2. Servisleri Nasıl Canlı Takip Edebilirim?
+                <div class="acc-btn active">2. Servisleri Nasıl Canlı Takip Edebilirim?
                   <div class="icon fa fa-chevron-right"></div>
                 </div>
                 <div class="acc-content">
@@ -673,11 +670,11 @@
                 </div>
               </li>
               <!--Block-->
-              <li class="accordion block">
-                <div class="acc-btn">3. Kişisel Veriler (KVKK) Nasıl Korunuyor?
+              <li class="accordion block active-block">
+                <div class="acc-btn active">3. Kişisel Veriler (KVKK) Nasıl Korunuyor?
                   <div class="icon fa fa-chevron-right"></div>
                 </div>
-                <div class="acc-content">
+                <div class="acc-content current">
                   <div class="content">
                     <div class="text">Veri işleme süreçlerimiz KVKK gereksinimlerine uygundur; veriler yetkisiz erişime karşı şifrelenir, saklama politikaları uygulanır ve talebe göre anonimleştirme sağlanır.</div>
                   </div>
@@ -686,9 +683,71 @@
             </ul>
           </div>
         </div>
-        <div class="image-column col-xl-7">
+        <div class="content-column col-lg-6">
           <div class="inner-column wow fadeInRight">
-            <figure class="image reveall"><img src="images/banner/banner3.png" alt="Image"></figure>
+            <!-- Booking Form -->
+            <div class="booking-form-two" id="booking-form">
+              <div class="sec-title light text-center">
+                <span class="sub-title line-style">GELSERVİS  TALEP FORMU</span>
+                <h2 class="letters-slide-upp text-splitt">Kurumunuz İçin Hemen Başvurun</h2>
+              </div>
+              <form method="get" action="#">
+                <div class="row gx-3">
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-name">İsim</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-name" name="name" placeholder="İsminiz" required>
+                      <i class="icon fal fa-user"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-phone">Telefon</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-phone" name="phone" placeholder="Telefon" required>
+                      <i class="icon fal fa-phone"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-company">Şirket / Kurum Adı</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-company" name="company" placeholder="Şirket / Kurum Adı" required>
+                      <i class="icon fal fa-building"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-employee-count">Çalışan Sayısı</label>
+                    <div class="input-outer">
+                      <input type="number" id="form-employee-count" name="employee_count" placeholder="Çalışan Sayısı" required>
+                      <i class="icon fal fa-users"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label for="form-region">Talep Edilen Bölge / Rota</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-region" name="region" placeholder="Örn: İstanbul Anadolu Yakası" required>
+                      <i class="icon fal fa-map-marker-alt"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-date">Talep Tarihi</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-date" name="date" placeholder="Tarih" required>
+                      <i class="icon fal fa-calendar-days"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <label for="form-time">Tercih Edilen Saat</label>
+                    <div class="input-outer">
+                      <input type="text" id="form-time" name="time" placeholder="Saat" required>
+                      <i class="icon fal fa-clock"></i>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                    <button type="submit" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">GÖRÜŞME TALEP ET</span></button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -696,7 +755,6 @@
   </section>
   <!--End FAQ Section -->
 
-          
 
 
 
@@ -733,7 +791,7 @@
                 <ul class="user-links">
                   <li><i class="icon fa fa-angle-double-right"></i> <a href="#about-section">Hakkımızda</a></li>
                   <li><i class="icon fa fa-angle-double-right"></i> <a href="#service-section">Hizmetlerimiz</a></li>
-                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#faqs-section">S.S.S.</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#faq-section">S.S.S.</a></li>
                   <li><i class="icon fa fa-angle-double-right"></i> <a href="#">KVKK ve Gizlilik</a></li>
                 </ul>
               </div>
@@ -816,7 +874,7 @@
   var translations = {
     tr: {
       title: 'GelServis | Akıllı Servis Yönetim Platformu',
-      preloader: { title: 'GelServis' },
+      preloader: { title: 'GEL SERVİS' },
       nav: { home:'ANA SAYFA', services:'HİZMETLERİMİZ', about:'HAKKIMIZDA', faq:'S.S.S.', contact:'İLETİŞİM' },
       header: { cta:'TEKLİF AL', langInfo: 'Dil: TR / EN' },
       banner: { title:'GelServis: Servis Yönetiminde Güven, Hız Ve Verimlilik', text:"Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.", cta:'Hizmetleri Keşfet' },
@@ -826,7 +884,7 @@
     },
     en: {
       title: 'GelServis | Smart Service Management Platform',
-      preloader: { title: 'GelServis' },
+      preloader: { title: 'GEL SERVİS' },
       nav: { home:'HOME', services:'SERVICES', about:'ABOUT', faq:'FAQ', contact:'CONTACT' },
       header: { cta:'GET A QUOTE', langInfo: 'Lang: TR / EN' },
       banner: { title:'GelServis: Trust, Speed and Efficiency in Service Management.', text:"Join GelServis via our mobile app; optimize routes and transparently report your Carbon Footprint. KVKK-compliant and live-tracking assurance.", cta:'Discover Services' },
@@ -969,7 +1027,13 @@
     langSelected.addEventListener('click', function(e) {
       e.stopPropagation();
       langDropdown.classList.toggle('open');
-      document.querySelector('.lang-arrow').innerHTML = langDropdown.classList.contains('open') ? '▲' : '▼';
+      // Rotate arrow
+      const arrow = document.querySelector('.lang-arrow');
+      if (langDropdown.classList.contains('open')) {
+        arrow.innerHTML = '▲';
+      } else {
+        arrow.innerHTML = '▼';
+      }
     });
     
     // Close dropdown when clicking elsewhere
@@ -1001,56 +1065,19 @@
     });
   });
   
-  // Smooth scroll to top for home link
+  // Smooth scrolling for "Ana Sayfa" link
   document.addEventListener('DOMContentLoaded', function() {
-    const homeLink = document.querySelector('.home-link');
+    const scrollToTopLink = document.querySelector('.scroll-to-top-link');
     
-    if (homeLink) {
-      homeLink.addEventListener('click', function(e) {
+    if (scrollToTopLink) {
+      scrollToTopLink.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Smooth scroll to top
+        // Smooth scroll to top of the page
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
         });
-      });
-    }
-    
-    // Check if we need to scroll to top when page loads (from contact page)
-    if (window.location.hash === '#home') {
-      // Remove the hash from the URL without triggering a page reload
-      history.replaceState(null, null, ' ');
-      
-      // Scroll to top smoothly
-      setTimeout(function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }, 100);
-    }
-  });
-
-  // Smooth scroll to FAQ section
-  document.addEventListener('DOMContentLoaded', function() {
-    const faqLink = document.querySelector('a[href="#faqs-section"]');
-    
-    if (faqLink) {
-      faqLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetSection = document.getElementById('faqs-section');
-        if (targetSection) {
-          // Calculate the position of the target element
-          const offsetTop = targetSection.offsetTop;
-          
-          // Smooth scroll to the FAQ section
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
-        }
       });
     }
   });
