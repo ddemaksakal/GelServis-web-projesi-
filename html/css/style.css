@@ -4671,7 +4671,10 @@ Main Header
 
 .faqs-section .image-column .inner-column {
   position: relative;
-  height: 400px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1199.98px) {
@@ -4690,14 +4693,16 @@ Main Header
   margin-bottom: 0;
   width: calc(100% - 30px);
   height: 350px;
-  margin-left: auto;
+  margin-left: 15px;
   margin-right: 15px;
   position: relative;
   z-index: 1;
   overflow: hidden;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .faqs-section .accordion-box .block .acc-btn.active .icon::before {
   content: "\f078";

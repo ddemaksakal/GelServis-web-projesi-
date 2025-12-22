@@ -61,30 +61,47 @@
   /* Custom style for FAQ section heading */
   .faqs-section .sec-title h2 {
     font-size: 32px;
-    color: #000000;
+    color: #e85815;
     font-weight: bold;
+  }
+  
+  /* Ensure FAQ section row has proper alignment */
+  .faqs-section .row {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .faqs-section .faq-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faqs-section .faq-column .inner-column {
+    flex: 1;
   }
   
   /* Adjust FAQ image to align with orange and black blocks */
   .faqs-section .image-column .image {
     clip-path: none;
     margin-bottom: 0;
-    margin-left: auto; /* Push to the right */
-    margin-right: 15px; /* Maintain right spacing */
+    margin-left: 0;
     width: calc(100% - 30px); /* Account for margins */
     height: 350px; /* Fixed height for better cropping */
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: flex-end; /* Align image to the right */
-    align-items: center;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    margin: 0 15px; /* Equal margins on both sides */
     overflow: hidden;
     border-radius: 10px;
   }
   
   .faqs-section .image-column .inner-column {
     position: relative;
-    height: 400px; /* Match the image container height */
+    min-height: 400px;
+    display: flex;
+    align-items: center;
   }
   
   .faqs-section .image-column .image img {
