@@ -68,7 +68,7 @@
   /* Ensure FAQ section row has proper alignment */
   .faqs-section .row {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start; /* Align items to the top */
   }
   
   .faqs-section .faq-column {
@@ -80,7 +80,7 @@
     flex: 1;
   }
   
-  /* Adjust FAQ image to align with orange and black blocks */
+  /* Align FAQ image with the top of the heading */
   .faqs-section .image-column .image {
     clip-path: none;
     margin-bottom: 0;
@@ -91,7 +91,7 @@
     z-index: 1;
     display: flex;
     justify-content: center; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
+    align-items: flex-start; /* Align image to the top */
     margin: 0 15px; /* Equal margins on both sides */
     overflow: hidden;
     border-radius: 10px;
@@ -101,7 +101,9 @@
     position: relative;
     min-height: 400px;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align to the top */
+    justify-content: center;
+    padding-top: 0; /* Remove any padding that might affect alignment */
   }
   
   .faqs-section .image-column .image img {
