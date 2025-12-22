@@ -4663,7 +4663,7 @@ Main Header
   }
 }
 .faqs-section .faq-column .inner-column .sec-title {
-  margin-bottom: 0px;
+  margin-bottom: 15px;
 }
 .faqs-section .image-column {
   position: relative;
@@ -4702,7 +4702,7 @@ Main Header
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 0;
 }
 .faqs-section .accordion-box .block .acc-btn.active .icon::before {
