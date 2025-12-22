@@ -71,34 +71,37 @@
     margin-bottom: 0;
     margin-left: 0;
     width: calc(100% - 30px); /* Account for the decorative blocks */
-    height: auto;
+    height: 350px; /* Fixed height for better cropping */
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
     margin: 0 15px; /* Center the image with equal margins */
+    overflow: hidden; /* Ensure the image stays within bounds */
+    border-radius: 10px;
   }
   
   .faqs-section .image-column .image img {
     width: 100%;
-    max-width: none; /* Remove the previous max-width restriction */
-    height: auto;
-    object-fit: cover;
+    max-width: none;
+    height: 100%;
+    object-fit: cover; /* Crop the image to fit the container */
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
   }
   
   /* Adjust the orange and black decorative blocks */
   .faqs-section .image-column .inner-column::before {
     content: "";
     position: absolute;
-    top: 20px;
-    bottom: 20px;
-    right: 0;
+    top: 10px;
+    bottom: 10px;
+    right: 15px;
     height: auto;
-    width: 120px;
+    width: 100px;
     background-color: var(--theme-color1);
     transform: skew(-15deg);
     pointer-events: none;
@@ -108,10 +111,10 @@
   .faqs-section .image-column .inner-column::after {
     content: "";
     position: absolute;
-    top: 40px;
-    left: 30px;
-    height: 180px;
-    width: 90px;
+    top: 30px;
+    left: 45px;
+    height: 160px;
+    width: 80px;
     background-color: var(--theme-color-dark);
     transform: skew(-15deg);
     pointer-events: none;
