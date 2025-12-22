@@ -65,6 +65,58 @@
     font-weight: bold;
   }
   
+  /* Adjust FAQ image to align with orange and black blocks */
+  .faqs-section .image-column .image {
+    clip-path: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
+  
+  .faqs-section .image-column .image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Adjust the orange and black decorative blocks */
+  .faqs-section .image-column .inner-column::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    right: 30px;
+    height: auto;
+    width: 120px;
+    background-color: var(--theme-color1);
+    transform: skew(-15deg);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .faqs-section .image-column .inner-column::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    height: 180px;
+    width: 90px;
+    background-color: var(--theme-color-dark);
+    transform: skew(-15deg);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
   /* Flag-based language selector styles */
   .lang-selector {
     position: relative;
@@ -417,7 +469,6 @@
             <a href="#benefit-section" class="theme-btn btn-style-one dark-line-two hover-light animate-3"><span class="btn-title" data-i18n="banner.cta">Hizmetleri Keşfet</span></a>
           </div>
         </div>
-        <div class="banner-shape-1 bounce-y"></div>
       </div>
       <div class="slide-item">
         <div class="bg bg-image" style="background-image: url(images/banner/banner2.png);"></div>
