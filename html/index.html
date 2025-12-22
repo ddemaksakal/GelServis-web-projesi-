@@ -70,23 +70,21 @@
     clip-path: none;
     margin-bottom: 0;
     margin-left: 0;
-    width: calc(100% - 160px); /* Account for both decorative blocks */
-    height: 300px; /* Fixed height for better cropping */
-    position: absolute;
-    z-index: 1; /* Behind the decorative columns */
+    width: calc(100% - 30px); /* Account for margins */
+    height: 350px; /* Fixed height for better cropping */
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 75px; /* Center between the columns */
-    top: 50%;
-    transform: translateY(-50%); /* Vertically center */
+    margin: 0 15px; /* Center the image with equal margins */
     overflow: hidden;
     border-radius: 10px;
   }
   
   .faqs-section .image-column .inner-column {
     position: relative;
-    height: 350px; /* Match the image container height */
+    height: 400px; /* Match the image container height */
   }
   
   .faqs-section .image-column .image img {
@@ -100,32 +98,13 @@
     z-index: 1;
   }
   
-  /* Adjust the orange and black decorative blocks */
+  /* Remove the orange and black decorative blocks */
   .faqs-section .image-column .inner-column::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    bottom: 20px;
-    right: 30px;
-    height: auto;
-    width: 100px;
-    background-color: var(--theme-color1);
-    transform: skew(-15deg);
-    pointer-events: none;
-    z-index: 2; /* Above the image */
+    display: none;
   }
   
   .faqs-section .image-column .inner-column::after {
-    content: "";
-    position: absolute;
-    top: 40px;
-    left: 30px;
-    height: 180px;
-    width: 80px;
-    background-color: var(--theme-color-dark);
-    transform: skew(-15deg);
-    pointer-events: none;
-    z-index: 2; /* Above the image */
+    display: none;
   }
   
   /* Flag-based language selector styles */

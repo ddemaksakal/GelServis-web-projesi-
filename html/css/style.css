@@ -4671,7 +4671,7 @@ Main Header
 
 .faqs-section .image-column .inner-column {
   position: relative;
-  height: 350px;
+  height: 400px;
 }
 
 @media (max-width: 1199.98px) {
@@ -4680,47 +4680,24 @@ Main Header
   }
 }
 .faqs-section .image-column .inner-column::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  right: 30px;
-  height: auto;
-  width: 100px;
-  background-color: var(--theme-color1);
-  -webkit-transform: skew(-15deg);
-          transform: skew(-15deg);
-  pointer-events: none;
-  z-index: 2;
+  display: none;
 }
 .faqs-section .image-column .inner-column::after {
-  content: "";
-  position: absolute;
-  top: 40px;
-  left: 30px;
-  height: 180px;
-  width: 80px;
-  background-color: var(--theme-color-dark);
-  -webkit-transform: skew(-15deg);
-          transform: skew(-15deg);
-  pointer-events: none;
-  z-index: 2;
+  display: none;
 }
 .faqs-section .image-column .image {
   clip-path: none;
   margin-bottom: 0;
-  width: calc(100% - 150px);
-  height: 300px;
+  width: calc(100% - 30px);
+  height: 350px;
   margin-left: 0;
-  position: absolute;
+  position: relative;
   z-index: 1;
-  left: 75px;
-  top: 50%;
-  transform: translateY(-50%);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 15px;
 }
 .faqs-section .accordion-box .block .acc-btn.active .icon::before {
   content: "\f078";
