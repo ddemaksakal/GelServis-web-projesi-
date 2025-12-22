@@ -457,7 +457,7 @@
             <button class="ui-btn search-btn light"> <span class="icon lnr lnr-icon-search"></span> </button>
             
             <!-- Btn Box -->
-            <div class="btn-box"> <a href="index.html#booking-form" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Görüşme Talep Et</span></a> </div>
+            <div class="btn-box"> <a href="#corporate-request-form" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Görüşme Talep Et</span></a> </div>
             
             <!-- Mobile Nav toggler -->
             <div class="mobile-nav-toggler light"><span class="icon lnr-icon-bars"></span></div>
@@ -565,7 +565,7 @@
       
       <div class="row">
         <div class="col-lg-8">
-          <div class="contact-form-wrapper">
+          <div class="contact-form-wrapper" id="corporate-request-form">
             <div class="sec-title light text-center">
               <span class="sub-title line-style">GELSERVİS TALEP FORMU</span>
               <h2 class="letters-slide-upp text-splitt">Kurumunuz İçin Hemen Başvurun</h2>
@@ -654,7 +654,7 @@
       </div>
       
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1d3010.855555555555!2d29.0085!3d41.0136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9a7a0c48f79%3A0x4c67a1b7a9f6d8b8!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2str!4v1634567890123!5m2!1sen!2str" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1d3010.855555555555!2d29.0085!3d41.0136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9a7a0c48f79%3A0x4c67a1b7a9f6d8b8!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2str!4v1634567890123!5m2!1sen!2str" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </section>
@@ -924,6 +924,20 @@
           behavior: 'smooth'
         });
       }
+    } 
+    // Check if we need to scroll to the corporate request form
+    else if (window.location.hash === '#corporate-request-form') {
+      // Scroll to the corporate request form smoothly
+      setTimeout(function() {
+        const formSection = document.getElementById('corporate-request-form');
+        if (formSection) {
+          const offsetTop = formSection.offsetTop;
+          window.scrollTo({
+            top: offsetTop - 100, // Adjust for header height
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     }
   });
 })();
