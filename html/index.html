@@ -69,15 +69,15 @@
   .faqs-section .image-column .image {
     clip-path: none;
     margin-bottom: 0;
-    margin-left: 0;
+    margin-left: auto; /* Push to the right */
+    margin-right: 15px; /* Maintain right spacing */
     width: calc(100% - 30px); /* Account for margins */
     height: 350px; /* Fixed height for better cropping */
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align image to the right */
     align-items: center;
-    margin: 0 15px; /* Center the image with equal margins */
     overflow: hidden;
     border-radius: 10px;
   }

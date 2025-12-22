@@ -4690,14 +4690,14 @@ Main Header
   margin-bottom: 0;
   width: calc(100% - 30px);
   height: 350px;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: 15px;
   position: relative;
   z-index: 1;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  margin: 0 15px;
 }
 .faqs-section .accordion-box .block .acc-btn.active .icon::before {
   content: "\f078";
