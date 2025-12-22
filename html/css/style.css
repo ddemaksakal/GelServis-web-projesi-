@@ -4699,9 +4699,11 @@ Main Header
   pointer-events: none;
 }
 .faqs-section .image-column .image {
-  clip-path: polygon(49% 0%, 94% 0px, 49% 100%, 0% 100%);
+  clip-path: none;
   margin-bottom: 0;
-  margin-left: 55px;
+  width: calc(100% - 30px);
+  margin-left: 15px;
+ 
 }
 .faqs-section .accordion-box .block .acc-btn.active .icon::before {
   content: "\f078";
