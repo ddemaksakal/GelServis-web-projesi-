@@ -3243,11 +3243,12 @@ Main Header
 .sticky-header .logo {
   padding: 5px 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+  gap: 12px;
 }
 .sticky-header .logo img {
-  max-height: 35px;
+  max-height: 55px;
   width: auto;
   display: block;
 }
@@ -3908,11 +3909,12 @@ Main Header
 .sticky-header .logo {
   padding: 5px 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
+  gap: 12px;
 }
 .sticky-header .logo img {
-  max-height: 35px;
+  max-height: 55px;
   width: auto;
   display: block;
 }
@@ -3934,7 +3936,7 @@ Main Header
   /* Metni logonun hemen yanına almak için sol boşluk ekliyoruz */
   margin-left: 10px !important; 
   
-  font-size: 20px; /* Diğer değerleri değiştirmeye gerek yok */
+  font-size: 24px; /* Match normal header */
   font-weight: 700;
   color: var(--theme-color-dark);
   text-decoration: none;
@@ -3946,7 +3948,8 @@ Main Header
   position: relative;
   /* İçindeki öğeleri yan yana ve dikey ortalamak için Flexbox kullanıyoruz */
   display: flex !important; /* Eğer başka bir display kuralı varsa, bu onu yener */
-  align-items: flex-start !important;
+  align-items: center !important;
+  gap: 12px;
 }
 .sticky-header .nav-outer {
   position: relative;
