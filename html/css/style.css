@@ -3241,9 +3241,14 @@ Main Header
 
 .sticky-header .logo {
   padding: 5px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .sticky-header .logo img {
-  max-height: 40px;
+  max-height: 35px;
+  width: auto;
+  display: block;
 }
 .sticky-header .nav-outer {
   position: relative;
@@ -3277,9 +3282,13 @@ Main Header
   color: var(--theme-color-dark);
 }
 
-.sticky-header .outer-box,
 .sticky-header .navbar-header {
   display: none;
+}
+/* Keep outer-box visible to maintain the 'Görüşme Talep Et' button */
+.sticky-header .outer-box {
+  display: flex;
+  align-items: center;
 }
 
 .sticky-header .mobile-nav-toggler {
@@ -3921,7 +3930,7 @@ Main Header
   position: relative;
   /* İçindeki öğeleri yan yana ve dikey ortalamak için Flexbox kullanıyoruz */
   display: flex !important; /* Eğer başka bir display kuralı varsa, bu onu yener */
-  align-items: center !important;
+  align-items: flex-start !important;
 }
 .sticky-header .nav-outer {
   position: relative;
@@ -3955,9 +3964,13 @@ Main Header
   color: var(--theme-color-dark);
 }
 
-.sticky-header .outer-box,
 .sticky-header .navbar-header {
   display: none;
+}
+/* Keep outer-box visible to maintain the 'Görüşme Talep Et' button */
+.sticky-header .outer-box {
+  display: flex;
+  align-items: center;
 }
 
 .sticky-header .mobile-nav-toggler {
