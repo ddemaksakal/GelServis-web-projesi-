@@ -3243,7 +3243,7 @@ Main Header
 .sticky-header .logo {
   padding: 5px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 .sticky-header .logo img {
@@ -3262,20 +3262,29 @@ Main Header
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
+          align-items: flex-start;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100%;
+  padding: 0;
+}
+
+.sticky-header .main-menu .navigation {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
 }
 
 .sticky-header .main-menu .navigation > li {
   margin: 0;
-  margin-left: 60px;
-  padding: 20px 0;
+  padding: 0;
 }
 
 .sticky-header .main-menu .navigation > li > a {
+  display: inline-block;
+  padding: 8px 10px;
   color: var(--theme-color-dark);
 }
 
@@ -3284,13 +3293,21 @@ Main Header
   color: var(--theme-color-dark);
 }
 
+.sticky-header .outer-box .btn-box .theme-btn {
+  padding: 20px 50px 20px 30px;
+  font-size: 18px;
+}
+
 .sticky-header .navbar-header {
   display: none;
 }
 /* Keep outer-box visible to maintain the 'Görüşme Talep Et' button */
 .sticky-header .outer-box {
+  position: relative;
   display: flex;
   align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .sticky-header .mobile-nav-toggler {
@@ -3895,7 +3912,7 @@ Main Header
 .sticky-header .logo {
   padding: 5px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 .sticky-header .logo img {
@@ -3946,20 +3963,29 @@ Main Header
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
+          align-items: flex-start;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100%;
+  padding: 0;
+}
+
+.sticky-header .main-menu .navigation {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
 }
 
 .sticky-header .main-menu .navigation > li {
   margin: 0;
-  margin-left: 60px;
-  padding: 20px 0;
+  padding: 0;
 }
 
 .sticky-header .main-menu .navigation > li > a {
+  display: inline-block;
+  padding: 8px 10px;
   color: var(--theme-color-dark);
 }
 
@@ -3968,13 +3994,21 @@ Main Header
   color: var(--theme-color-dark);
 }
 
+.sticky-header .outer-box .btn-box .theme-btn {
+  padding: 20px 50px 20px 30px;
+  font-size: 18px;
+}
+
 .sticky-header .navbar-header {
   display: none;
 }
 /* Keep outer-box visible to maintain the 'Görüşme Talep Et' button */
 .sticky-header .outer-box {
+  position: relative;
   display: flex;
   align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .sticky-header .mobile-nav-toggler {
