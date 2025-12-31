@@ -3263,9 +3263,9 @@ Main Header
 }.sticky-header .nav-outer {
   position: relative;
   background: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .sticky-header .inner-container {
   position: relative;
@@ -3275,16 +3275,19 @@ Main Header
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
           justify-content: space-between;
-  height: 100%;
+  height: 72px;
 }
 
-.sticky-header .main-menu .navigation > li {
+.sticky-header .main-menu .navigation > li{
   margin: 0;
-  padding: 20px 0px;
-  margin-right: 15px; 
+  padding: 0;           /* <-- BUNU sıfırla */
+  margin-right: 15px;
+  display: flex;        /* <-- linki dikeyde ortalamak için */
+  align-items: center;  /* <-- link aynı hizada */
+  height: 72px;         /* <-- sticky-header yüksekliği ile aynı */
 }
 
 .sticky-header .main-menu .navigation > li > a {
@@ -3301,13 +3304,37 @@ Main Header
 .sticky-header .navbar-header {
   display: none;
 }
-/* Keep outer-box visible to maintain the 'Görüşme Talep Et' button */
 .sticky-header .outer-box {
   position: relative;
   display: flex;
   align-items: center;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  margin-left: 15px; 
+}
+
+.sticky-header .logo-box {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-right: 30px; 
+}
+
+.sticky-header .nav-outer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background: none;
 }
 
 .sticky-header .outer-box .btn-box .theme-btn {
