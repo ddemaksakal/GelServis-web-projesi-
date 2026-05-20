@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>GelServis | Akıllı Servis Yönetim Platformu</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+<link href="plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+<link href="plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+<link href="css/style.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/logo-1.png" type="image/x-icon">
+<link rel="icon" href="images/logo-1.png" type="image/x-icon">
+
+<!-- GelServis: Language selector styles -->
+<style>
+  .lang-wrap{display:inline-block;margin-right:12px;vertical-align:middle}
+  .lang-select{appearance:none;-webkit-appearance:none;-moz-appearance:none;border:1px solid rgba(0,0,0,.08);background:#ffffff;padding:6px 10px;border-radius:6px;font-size:13px;color:#333;cursor:pointer}
+  .lang-select:focus{outline:none;box-shadow:0 0 0 3px rgba(34,150,243,0.08)}
+  /* small screens: slightly smaller select */
+  @media (max-width:600px){
+    .lang-wrap{margin-right:6px}
+    .lang-select{padding:5px 8px;font-size:12px;border-radius:5px}
+  }
+  /* Header layout: keep visual styles unchanged, only position and alignment */
+  /* Reduced heights to avoid visual overflow and prevent banner overlap */
+  .header-top{height:64px}
+  .header-top .inner-container{display:flex;align-items:center;justify-content:space-between;height:100%}
+  .header-top .top-left,.header-top .top-right{display:flex;align-items:center}
+  /* Display contact items side-by-side horizontally while keeping icons aligned */
+  .header-top .list-style-one{margin:0;padding:0;display:flex;flex-direction:row;gap:20px;align-items:center}
+  .header-top .list-style-one li{display:flex;align-items:center;gap:10px}
+  .header-top .list-style-one li a{white-space:nowrap}
+  .header-lower .main-box{display:flex;align-items:center;justify-content:space-between}
+  .header-lower .logo-box{flex:0 0 auto}
+  .header-lower .nav-outer{flex:1;display:flex;justify-content:center}
+  .header-lower .outer-box{flex:0 0 auto;display:flex;align-items:center;gap:12px}
+  .header-top, .header-lower{margin:0;padding:0}
+  .header-top{width:100%}
+  /* Center nav links horizontally while keeping logo left and controls right */
+  /* Reduced gap and adjusted link padding to remove excessive spacing */
+  .nav-outer .navigation{display:flex;gap:16px;align-items:center;justify-content:center}
+  .nav-outer .navigation li a{display:inline-block;padding:8px 10px}
+  .nav-outer .navigation li{list-style:none}
+  .header-lower{height:72px}
+  .header-lower .main-box{height:100%}
+  /* remove any vertical gaps between top and lower bars */
+  .header-top + .header-lower{margin-top:0}
+  @media (max-width:991px){
+    .header-top{height:auto}
+    .header-top .inner-container{flex-wrap:wrap}
+    .header-lower .nav-outer{order:2;width:100%}
+  }
+  
+  /* Custom style to reduce the width of the "Hizmetleri Keşfet" button */
+  .banner-section .btn-style-one {
+    padding: 24px 40px 20px 40px; /* Reduced from 90px right padding and 60px left padding */
+  }
+  
+  /* Custom style for FAQ section heading */
+  .faqs-section .sec-title h2 {
+    font-size: 32px;
+    color: #e85815;
+    font-weight: bold;
+  }
+  
+  /* Ensure FAQ section row has proper alignment */
+  .faqs-section .row {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+  }
+  
+  .faqs-section .faq-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faqs-section .faq-column .inner-column {
+    flex: 1;
+  }
+  
+  /* Align FAQ image with the top of the heading */
+  .faqs-section .image-column .image {
+    clip-path: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: calc(100% - 30px); /* Account for margins */
+    height: 350px; /* Fixed height for better cropping */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: flex-start; /* Align image to the top */
+    margin: 40px 35px 0 35px; /* Adjusted top margin to position slightly lower */
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .faqs-section .image-column .inner-column {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-start; /* Align to the top */
+    justify-content: center;
+    padding-top: 50px; /* Add slight padding to position image lower */
+  }
+  
+  .faqs-section .image-column .image img {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover; /* Crop the image to fit the container */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Remove the orange and black decorative blocks */
+  .faqs-section .image-column .inner-column::before {
+    display: none;
+  }
+  
+  .faqs-section .image-column .inner-column::after {
+    display: none;
+  }
+  
+  /* Flag-based language selector styles */
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+  }
+  
+  .lang-selected {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .lang-selected:hover {
+    box-shadow: 0 0 0 3px rgba(34,150,243,0.08);
+  }
+  
+  .lang-flag {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  
+  /* Corrected Turkish flag with proper red background */
+  .flag-tr {
+    background-color: #e30a17;
+    position: relative;
+  }
+  
+  .flag-tr::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .flag-tr::after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #e30a17;
+    border-radius: 50%;
+  }
+  
+  .flag-en {
+    background: linear-gradient(
+      to bottom,
+      #012169 0%,
+      #012169 33.33%,
+      #fff 33.33%,
+      #fff 66.66%,
+      #c8102e 66.66%,
+      #c8102e 100%
+    );
+  }
+  
+  .flag-de {
+    background: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 33.33%,
+      #dd0000 33.33%,
+      #dd0000 66.66%,
+      #ffce00 66.66%,
+      #ffce00 100%
+    );
+  }
+  
+  .lang-arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+  }
+  
+  .lang-dropdown.open {
+    display: block;
+  }
+  
+  .lang-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
+  
+  .lang-option:last-child {
+    border-bottom: none;
+  }
+  
+  .lang-option:hover {
+    background: #f8f9fa;
+  }
+  
+  .lang-option .lang-flag {
+    margin-right: 12px;
+  }
+  
+  .lang-name {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Small screen adjustments */
+  @media (max-width: 600px) {
+    .lang-selector {
+      margin-right: 8px;
+    }
+    
+    .lang-selected {
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+    
+    .lang-dropdown {
+      min-width: 150px;
+    }
+    
+    .lang-name {
+      font-size: 13px;
+    }
+  }
+</style>
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    
+  <!-- Preloader -->
+  <div class="preloader"><h1 data-text="GelServis" data-i18n="preloader.title">GelServis</h1></div>
+  <!-- Main Header-->
+  <header class="main-header header-style-one ">
+    
+    <!-- Header Top -->
+    <div class="header-top">
+      <div class="auto-container">
+        <div class="inner-container">
+          <div class="top-left"> 
+            <!-- Info List -->
+            <ul class="list-style-one light">
+              <li><i class="fal fa-mobile"></i> <a href="tel:0123456789">+92 8475 904950</a></li>
+              <li><i class="fal fa-envelope"></i> <a href="mailto:info@gelservis.com" >info@gelservis.com</a></li>
+            </ul>
+          </div>
+          <div class="top-right">
+            <!-- Flag-based Language Selector -->
+            <div class="lang-selector">
+              <div class="lang-selected">
+                <div class="lang-flag flag-tr"></div>
+                <span class="lang-text">Türkçe</span>
+                <span class="lang-arrow">▼</span>
+              </div>
+              <div class="lang-dropdown">
+                <div class="lang-option" data-lang="tr">
+                  <div class="lang-flag flag-tr"></div>
+                  <span class="lang-name">Türkçe</span>
+                </div>
+                <div class="lang-option" data-lang="en">
+                  <div class="lang-flag flag-en"></div>
+                  <span class="lang-name">İngilizce</span>
+                </div>
+                <div class="lang-option" data-lang="de">
+                  <div class="lang-flag flag-de"></div>
+                  <span class="lang-name">Almanca</span>
+                </div>
+              </div>
+            </div>
+            <ul class="social-icon-one">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Top -->
+    
+    <div class="header-lower">
+      <div class="auto-container"> 
+        <!-- Main box -->
+        <div class="main-box">
+          <div class="logo-box">
+            <div class="logo">
+              <a href="index.html">
+                <img src="images/logo-1.png" alt="Logo">
+                <span class="logo-text">GelServis</span>
+              </a>
+            </div>
+          </div>
+          
+          <!--Nav Box-->
+          <div class="nav-outer">
+            <nav class="nav main-menu">
+              <ul class="navigation">
+                <li><a href="#" class="home-link">Ana Sayfa</a></li>
+                <li><a href="#about-section">Hakkımızda</a></li>
+                <li><a href="#service-section">Hizmetlerimiz</a></li>
+                <li><a href="#faqs-section">S.S.S</a></li>
+                <li><a href="page-contact.html">İletişim</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Main Menu End--> 
+          
+          <!-- Outer Box -->
+          <div class="outer-box"> 
+            
+            <!-- Search Btn -->
+            <button class="ui-btn search-btn light"> <span class="icon lnr lnr-icon-search"></span> </button>
+            
+            <!-- Btn Box -->
+            <div class="btn-box"> <a href="page-contact.html#corporate-request-form" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Görüşme Talep Et</span></a> </div>
+            
+            <!-- Mobile Nav toggler -->
+            <div class="mobile-nav-toggler light"><span class="icon lnr-icon-bars"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+      <div class="menu-backdrop"></div>
+      
+      <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+      <nav class="menu-box">
+        <div class="upper-box">
+          <div class="nav-logo"><a href="index.html"><img src="images/logo-1.png" alt="" title=""><span class="logo-text">GelServis</span></a></div>
+          <div class="close-btn"><i class="icon fa fa-times"></i></div>
+        </div>
+        <ul class="navigation clearfix">
+          <!--Keep This Empty / Menu will come through Javascript-->
+        </ul>
+        <ul class="contact-list-one light">
+          <li> <i class="icon lnr-icon-phone-handset"></i> <span class="title">Call Now</span>
+            <div class="text"><a href="tel:+92880098670">+92 (8800) - 98670</a></div>
+          </li>
+          <li> <i class="icon lnr-icon-envelope1"></i> <span class="title">Send Email</span>
+            <div class="text"><a href="mailto:help@company.com">help@company.com</a></div>
+          </li>
+          <li> <i class="icon lnr-icon-map-marker"></i> <span class="title">Address</span>
+          </li>
+        </ul>
+        <ul class="social-links">
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- End Mobile Menu --> 
+    
+    <!-- Header Search -->
+    <div class="search-popup"> <span class="search-back-drop"></span>
+      <button class="close-search"><span class="fa fa-times"></span></button>
+      <div class="search-inner">
+        <form method="post" action="blog-showcase.html">
+          <div class="form-group">
+            <input type="search" name="search-field" value="" placeholder="Search..." required="">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End Header Search --> 
+    
+    <!-- Sticky Header  -->
+    <div class="sticky-header">
+      <div class="auto-container">
+        <!-- Main box -->
+        <div class="main-box">
+          <div class="logo-box">
+            <div class="logo">
+              <a href="index.html">
+                <img src="images/logo-1.png" alt="Logo">
+                <span class="logo-text">GelServis</span>
+              </a>
+            </div>
+          </div>
+          
+          <!--Nav Box-->
+          <div class="nav-outer">
+            <nav class="nav main-menu">
+              <ul class="navigation">
+                <!--Keep This Empty / Menu will come through Javascript-->
+              </ul>
+            </nav>
+          </div>
+          <!-- Main Menu End--> 
+          
+          <!-- Outer Box -->
+          <div class="outer-box"> 
+            
+            <!-- Search Btn -->
+            <button class="ui-btn search-btn light"> <span class="icon lnr lnr-icon-search"></span> </button>
+            
+            <!-- Btn Box -->
+            <div class="btn-box"> <a href="page-contact.html#corporate-request-form" class="theme-btn btn-style-one dark-line-two hover-light"><span class="btn-title">Görüşme Talep Et</span></a> </div>
+            
+            <!-- Mobile Nav toggler -->
+            <div class="mobile-nav-toggler light"><span class="icon lnr-icon-bars"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Sticky Menu --> 
+  </header>
+  <!--End Main Header -->
+  <!-- Banner Section -->
+  <section class="banner-section">
+    <div class="banner-carousel owl-carousel owl-theme">
+      <div class="slide-item">
+        <div class="bg bg-image" style="background-image: url(images/banner/banner.jpg);"></div>
+        <div class="banner-shape-curve1 animate-1"></div>
+        <div class="banner-shape-curve2 animate-1"></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1 class="title animate-1" data-i18n="banner.title">GelServis: Servis Yönetiminde Güven, Hız Ve Verimlilik</h1>
+            <div class="text animate-2" style="margin-top: 30px; font-weight: 600; color:whitesmoke;">Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.</div>
+            <a href="#benefit-section" class="theme-btn btn-style-one dark-line-two hover-light animate-3"><span class="btn-title" data-i18n="banner.cta">Hizmetleri Keşfet</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="slide-item">
+        <div class="bg bg-image" style="background-image: url(images/banner/banner2.png);"></div>
+        <div class="banner-shape-curve1 animate-1"></div>
+        <div class="banner-shape-curve2 animate-1"></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1 class="title animate-1" data-i18n="banner.title">GelServis: Servis Yönetiminde Güven, Hız Ve Verimlilik </h1>
+            <div class="text animate-2" style="margin-top: 18px; font-weight: 600;">Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.</div>
+            <a href="#benefit-section" class="theme-btn btn-style-one dark-line-two hover-light animate-3"><span class="btn-title" data-i18n="banner.cta">Hizmetleri Keşfet</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Banner Section -->
+
+  
+
+  <!-- About Section -->
+  <section class="about-section pt-0" id="about-section">
+    <div class="auto-container">
+      <div class="row">
+
+        <!-- Content Column -->
+        <div class="content-column col-lg-6 col-md-12 col-sm-12 order-lg-2" data-aos="fade-left">
+          <div class="inner-column">
+            <div class="sec-title">
+              <span class="sub-title" data-i18n="about.subtitle">GelServis: UYATUR'un Dijital Gücü</span>
+              <h2 data-i18n="about.title">Gelişmiş Teknolojimizle Personel ve Okul Taşımacılığını Dönüştürüyoruz</h2>
+              <div class="text" data-i18n="about.text">Operasyonel verimliliği artıran, KVKK uyumlu ve çevresel etkileri takip eden uçtan uca servis yönetimi çözümleri sunuyoruz.</div>
+            </div>
+            <blockquote class="blockquote-style-two" data-i18n="about.quote">GelServis, operasyonel maliyetleri düşürürken, yolcuların (Personel/Öğrenci/Ebeveyn) güven ve memnuniyetini en üst düzeye çıkarır.</blockquote>
+            <div class="bottom-box">
+              <!-- Features Block -->
+              <div class="features-outer">
+                <div class="feature-block">
+                  <i class="icon fal fa-route"></i> <span data-i18n="feature.route">Akıllı Rota Optimizasyonu</span>
+                </div>
+                <div class="feature-block">
+                  <i class="icon fal fa-user-shield"></i> <span data-i18n="feature.security">KVKK Uyumlu Güvenlik</span>
+                </div>
+                <a href="page-contact.html#corporate-request-form" class="theme-btn btn-style-one"><span class="btn-title" data-i18n="about.cta">Hemen Başvurun</span></a>
+              </div>
+
+              <div class="video-box" data-aos="fade-upp">
+                <figure class="image"><video width="130" height="220" controls poster="images/banner/gelservisvideokapak.png"><source src="images/banner/gelservis.mp4" type="video/mp4">Your browser does not support the video tag.</video></figure>
+                <a href="#" class="play-btn" onclick="playLocalVideo(this)"><div class="icon-triangle fas fa-play"></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Column -->
+        <div class="image-column col-lg-6 col-md-12 col-sm-12">
+          <div class="inner-column">
+            <figure class="image reveal"><img src="images/banner/about1.png" alt="GelServis mobil uygulamasından rota takibi yapan yönetici" style="width: 480px; height: 600px; object-fit: cover; border-radius: 10px;"></figure>
+            <figure class="image-2" data-aos="fade-up"><img src="images/resource/about1-2.png" alt="UYATUR personel servisi gösterimi"></figure>
+            <figure class="image-3 reveal"><img src="images/banner/about2.png" alt="GelServis uygulaması ile canlı takip ekranı" style="width: 250px; height: 300px; object-fit: cover; border-radius: 10px;" ></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+   <section class="service-section-five" id="service-section">
+  <div class="auto-container">
+    <div class="sec-title text-center">
+      <span class="sub-title">GELSERVİS HİZMETLERİ</span>
+      <h2 data-aos="fade-up" data-aos-delay="200">
+        İşletmeniz İçin En Akıllı ve Verimli <br>Ulaşım Çözümleri
+      </h2>
+    </div>
+    <div class="row" data-aos="fade-left">
+      <!-- Service 1 -->
+      <div class="col-lg-4 col-sm-6 service-item">
+        <!-- Image Block -->
+        <div class="service-image-block">
+          <div class="image-box">
+            <figure class="servicesec"><img src="images/banner/kurumsalservis.png" alt="kurumsalservis"></figure>
+            <!-- Diagonal orange stripe -->
+            <div class="diagonal-stripe"></div>
+          </div>
+        </div>
+        <!-- Text Block -->
+        <div class="service-text-block">
+          <h4 class="title"><a href="page-service-details.html">Kurumsal Personel Servisi</a></h4>
+          <div class="text">Personelinize özel akıllı rota ve canlı takip entegrasyonu. UYATUR güvencesiyle güvenli personel taşımacılığı.</div>
+        </div>
+      </div>
+      
+      <!-- Service 2 -->
+      <div class="col-lg-4 col-sm-6 service-item">
+        <!-- Image Block -->
+        <div class="service-image-block">
+          <div class="image-box">
+            <figure class="servicesec"><img src="images/banner/okulservisi.png" alt="okulservis"></figure>
+            <!-- Diagonal orange stripe -->
+            <div class="diagonal-stripe"></div>
+          </div>
+        </div>
+        <!-- Text Block -->
+        <div class="service-text-block">
+          <h4 class="title"><a href="page-service-details.html">Öğrenci ve Okul Servis Yönetimi</a></h4>
+          <div class="text">Ebeveyn bilgilendirme, hostes takibi ve tam KVKK uyumu sağlayan güvenli taşıma yönetimi.</div>
+        </div>
+      </div>
+      
+      <!-- Service 3 -->
+      <div class="col-lg-4 col-sm-6 service-item">
+        <!-- Image Block -->
+        <div class="service-image-block">
+          <div class="image-box">
+            <figure class="servicesec"><img src="images/banner/karbon.png" alt="carbonraporlama"></figure>
+            <!-- Diagonal orange stripe -->
+            <div class="diagonal-stripe"></div>
+          </div>
+        </div>
+        <!-- Text Block -->
+        <div class="service-text-block">
+          <h4 class="title"><a href="page-service-details.html">Karbon Ayak İzi Raporlama</a></h4>
+          <div class="text">Operasyonel verimlilikle çevresel sürdürülebilirliğe katkı sağlayan otomatik CO2 hesaplama ve raporlama.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefit Section -->
+  <section class="benefit-section-two" id="benefit-section">
+    <div class="auto-container">
+      <div class="sec-title text-center">
+        <span class="sub-title line-style">GELSERVİS MOBİL UYGULAMA AVANTAJLARI</span>
+        <h2>Şoför, Yolcu ve Kurum Yöneticisi için <br>Çığır Açan Özellikler</h2>
+      </div>
+      <div class="row">
+        <!-- Blocks Column -->
+        <div class="blocks-column col-lg-4 col-md-6 col-sm-6" data-aos="fade-right">
+          <div class="inner-column">
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-route"></i>
+                <div class="content">
+                  <h4 class="title">Dinamik Rota Optimizasyonu</h4>
+                  <div class="text">Yolcuların gelmeyeceği günleri bildirerek şoförün rotasını otomatik güncelleme ve verimli planlama.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-chair"></i>
+                <div class="content">
+                  <h4 class="title">Boş Koltuk Yönetimi</h4>
+                  <div class="text">Şoförün anlık boş kapasiteyi görüp rota üzerindeki ek yolcuları yönetmesine olanak tanır.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-gas-pump"></i>
+                <div class="content">
+                  <h4 class="title">Yakıt ve Servis Takibi</h4>
+                  <div class="text">Filo yönetimi için yakıt, sigorta ve teknik servis kayıtlarının merkezi takibi ve raporlaması.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image Column -->
+        <div class="image-column col-lg-4 col-md-12 col-sm-12">
+          <div class="inner-column">
+            <div class="bus-icon-container" style="text-align: center; margin-top: 450px;">
+              <i class="fa-solid fa-bus" style="color: #fa5700; font-size: 370px;"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Blocks Column -->
+        <div class="blocks-column style-two col-lg-4 col-md-6 col-sm-6" data-aos="fade-left">
+          <div class="inner-column">
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-map-marked-alt"></i>
+                <div class="content">
+                  <h4 class="title">Canlı Harita ve Konum Takibi</h4>
+                  <div class="text">Yolcuların ve ebeveynlerin servisin anlık konumunu uygulamadan izlemesi için konum paylaşımı.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-qrcode"></i>
+                <div class="content">
+                  <h4 class="title">QR Kodlu Biniş Sistemi</h4>
+                  <div class="text">Hızlı ve hatasız dijital yoklama ile yalnızca kayıtlı yolcuların binişine izin verir.</div>
+                </div>
+              </div>
+            </div>
+            <!-- Benefit Block -->
+            <div class="benefit-block-two">
+              <div class="inner-box">
+                <i class="icon fal fa-star-half-alt"></i>
+                <div class="content">
+                  <h4 class="title">Puanlama ve Şikayet Modülü</h4>
+                  <div class="text">Hızlı geri bildirim, araç/şoför puanlaması ve bildirim tabanlı şikayet yönetimi.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Benefits Section -->
+
+  <!-- FAQ 1 Section -->
+  <section class="faqs-section" id="faqs-section">
+    <div class="auto-container">
+      <div class="row">
+        <!-- FAQ Column -->
+        <div class="faq-column col-xl-5 col-lg-12">
+          <div class="inner-column">
+            <div class="sec-title">
+              <span class="sub-title">Sıkça Sorulan Sorular</span>
+              <h2 class="letters-slide-up text-split">Kurumsal Müşteriler İçin Hızlı Yanıtlar</h2>
+            </div>
+            <ul class="accordion-box style-two wow fadeInLeft">
+              <!--Block-->
+              <li class="accordion block">
+                <div class="acc-btn">1. Kurumsal Başvuru Süreci Nasıldır?
+                  <div class="icon fa fa-chevron-right"></div>
+                </div>
+                <div class="acc-content">
+                  <div class="content">
+                    <div class="text">Bizimle iletişime geçerek demo talebi oluşturun; bölge, araç adedi ve çalışma saatlerinizi belirttiğinizde size özel teklif ve pilot uygulama planı sunuyoruz.</div>
+                  </div>
+                </div>
+              </li>
+              <!--Block-->
+              <li class="accordion block">
+                <div class="acc-btn">2. Servisleri Nasıl Canlı Takip Edebilirim?
+                  <div class="icon fa fa-chevron-right"></div>
+                </div>
+                <div class="acc-content">
+                  <div class="content">
+                    <div class="text">GelServis mobil uygulaması ve web paneli üzerinden araçların anlık konumunu, tahmini varış sürelerini ve geçmiş rota kayıtlarını görebilir, bildirimlerle bilgilendirme sağlayabilirsiniz.</div>
+                  </div>
+                </div>
+              </li>
+              <!--Block-->
+              <li class="accordion block">
+                <div class="acc-btn">3. Kişisel Veriler (KVKK) Nasıl Korunuyor?
+                  <div class="icon fa fa-chevron-right"></div>
+                </div>
+                <div class="acc-content">
+                  <div class="content">
+                    <div class="text">Veri işleme süreçlerimiz KVKK gereksinimlerine uygundur; veriler yetkisiz erişime karşı şifrelenir, saklama politikaları uygulanır ve talebe göre anonimleştirme sağlanır.</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="image-column col-xl-7">
+          <div class="inner-column wow fadeInRight">
+            <figure class="image reveall"><img src="images/banner/banner3.png" alt="Image"></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--End FAQ Section -->
+
+          
+
+
+
+          
+
+  <!-- Main Footer -->
+  <footer class="main-footer footer-style-two">
+    <div class="bg bg-pattern-4"></div>
+    <!-- Footer Top -->
+
+    <!-- Widgets Section -->
+    <div class="widgets-section">
+      <div class="auto-container">
+        <div class="row">
+
+          <!-- Footer Column -->
+          <div class="footer-column col-lg-4 col-md-6 col-sm-12">
+            <div class="footer-widget about-widget">
+              <h5 class="widget-title">Download Mobile App</h5>
+              <div class="widget-content">
+                <div class="btn-box">
+                  <a href="#" class="image"><img src="images/icons/google-play-2.png" alt="Image"></a>
+                  <a href="#" class="image"><img src="images/icons/app-store-2.png" alt="Image"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Column -->
+          <div class="footer-column col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget links-widget">
+              <h4 class="widget-title">Useful Links</h4>
+              <div class="widget-content">
+                <ul class="user-links">
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#about-section">Hakkımızda</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#service-section">Hizmetlerimiz</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#faqs-section">S.S.S.</a></li>
+                  <li><i class="icon fa fa-angle-double-right"></i> <a href="#">KVKK ve Gizlilik</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Column -->
+          <div class="footer-column col-lg-3 col-md-6 col-sm-12">
+            <div class="footer-widget contact-widget">
+              <h4 class="widget-title">İletişim Bilgileri</h4>
+              <div class="widget-content">
+                <ul class="contact-list">
+                  <li>
+                    <i class="icon fal fa-map-marker-alt"></i>
+                    <span>Adres: Istanbul, Turkey</span>
+                  </li>
+                  <li>
+                    <i class="icon fal fa-phone"></i>
+                    <a href="tel:+901234567890">+90 123 456 7890</a>
+                  </li>
+                  <li>
+                    <i class="icon fal fa-envelope"></i>
+                    <a href="mailto:info@uyatur.com">info@uyatur.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+       
+    <!--  Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="auto-container">
+        <div class="inner-container">
+          <div class="copyright-text" data-i18n="footer.copy">© Copyright GelServis (UYATUR Dijital Turizm). Tüm Hakları Saklıdır.</div>
+          <ul class="footer-nav">
+            <li><a href="#"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--End Main Footer -->
+
+</div><!-- End Page Wrapper -->
+
+<!-- Scroll To Top -->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+<script src="js/jquery.js"></script> 
+<script src="js/popper.min.js"></script>
+<!--Revolution Slider-->
+<script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="js/main-slider-script.js"></script>
+<!--Revolution Slider-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/splitType.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/odometer.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/script.js"></script>
+<script>
+(function(){
+  var translations = {
+    tr: {
+      title: 'GelServis | Akıllı Servis Yönetim Platformu',
+      preloader: { title: 'GelServis' },
+      nav: { home:'ANA SAYFA', services:'HİZMETLERİMİZ', about:'HAKKIMIZDA', faq:'S.S.S.', contact:'İLETİŞİM' },
+      header: { cta:'TEKLİF AL', langInfo: 'Dil: TR / EN' },
+      banner: { title:'GelServis: Servis Yönetiminde Güven, Hız Ve Verimlilik', text:"Mobil uygulamamızla GelServis'e katılın; rotaları optimize edin, Karbon Ayak İzinizi şeffaflıkla raporlayın. KVKK uyumlu ve canlı takip güvencesiyle.", cta:'Hizmetleri Keşfet' },
+      about: { subtitle:"GelServis: UYATUR'un Dijital Gücü", title:'Gelişmiş Teknolojimizle Personel ve Okul Taşımacılığını Dönüştürüyoruz', text:'Operasyonel verimliliği artıran, KVKK uyumlu ve çevresel etkileri takip eden uçtan uca servis yönetimi çözümleri sunuyoruz.', quote:"GelServis, operasyonel maliyetleri düşürürken, yolcuların (Personel/Öğrenci/Ebeveyn) güven ve memnuniyetini en üst düzeye çıkarır.", cta:'Hemen Başvurun' },
+      feature: { route:'Akıllı Rota Optimizasyonu', security:'KVKK Uyumlu Güvenlik' },
+      footer: { copy:'© Copyright GelServis (UYATUR Dijital Turizm). Tüm Hakları Saklıdır.' }
+    },
+    en: {
+      title: 'GelServis | Smart Service Management Platform',
+      preloader: { title: 'GelServis' },
+      nav: { home:'HOME', services:'SERVICES', about:'ABOUT', faq:'FAQ', contact:'CONTACT' },
+      header: { cta:'GET A QUOTE', langInfo: 'Lang: TR / EN' },
+      banner: { title:'GelServis: Trust, Speed and Efficiency in Service Management.', text:"Join GelServis via our mobile app; optimize routes and transparently report your Carbon Footprint. KVKK-compliant and live-tracking assurance.", cta:'Discover Services' },
+      about: { subtitle:'GelServis: UYATUR Digital Strength', title:'Transforming Staff and School Transport with Advanced Technology', text:'We offer end-to-end service management solutions that increase operational efficiency, ensure KVKK compliance and track environmental impact.', quote:'GelServis reduces operational costs while maximizing passenger (Staff/Student/Parent) safety and satisfaction.', cta:'Apply Now' },
+      feature: { route:'Smart Route Optimization', security:'KVKK Compliant Security' },
+      footer: { copy:'© Copyright GelServis (UYATUR Digital Tourism). All Rights Reserved.' }
+    }
+  };
+
+  function t(lang,key){
+    var parts = key.split('.');
+    var obj = translations[lang];
+    for(var i=0;i<parts.length;i++){
+      if(!obj) return '';
+      obj = obj[parts[i]];
+    }
+    return obj!=null?obj:'';
+  }
+
+  function applyTranslations(lang){
+    document.documentElement.lang = (lang==='tr')? 'tr' : 'en';
+    document.title = t(lang,'title') || document.title;
+    // update all elements with data-i18n
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for(var i=0;i<nodes.length;i++){
+      var el = nodes[i];
+      var key = el.getAttribute('data-i18n');
+      var val = t(lang,key);
+      if(val!==undefined && val!==''){
+        el.textContent = val;
+      }
+    }
+    // persist
+    try{ localStorage.setItem('site-lang', lang); }catch(e){}
+    var sel = document.getElementById('lang-select'); if(sel) sel.value = lang;
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('site-lang'); }catch(e){}
+    var browserDefault = (navigator.language && navigator.language.toLowerCase().indexOf('en')===0)?'en':'tr';
+    var lang = saved || browserDefault;
+    applyTranslations(lang);
+    var sel = document.getElementById('lang-select');
+    if(sel){ sel.addEventListener('change', function(){ applyTranslations(this.value); }); }
+  });
+  
+  // Ensure service and benefit section h2 elements are visible
+  window.addEventListener('load', function() {
+    // Force visibility for service section h2
+    var serviceHeading = document.querySelector('.service-section-five .sec-title h2.letters-slide-up.text-split');
+    if (serviceHeading) {
+      serviceHeading.style.opacity = '1';
+      serviceHeading.style.visibility = 'visible';
+      serviceHeading.style.display = 'block';
+      
+      // Also ensure child char elements are visible
+      var serviceChars = serviceHeading.querySelectorAll('.char');
+      serviceChars.forEach(function(char) {
+        char.style.opacity = '1';
+        char.style.visibility = 'visible';
+        char.style.display = 'inline-block';
+      });
+    }
+    
+    // Force visibility for benefit section h2
+    var benefitHeading = document.querySelector('.benefit-section-two .sec-title h2.letters-slide-up.text-split');
+    if (benefitHeading) {
+      benefitHeading.style.opacity = '1';
+      benefitHeading.style.visibility = 'visible';
+      benefitHeading.style.display = 'block';
+      
+      // Also ensure child char elements are visible
+      var benefitChars = benefitHeading.querySelectorAll('.char');
+      benefitChars.forEach(function(char) {
+        char.style.opacity = '1';
+        char.style.visibility = 'visible';
+        char.style.display = 'inline-block';
+      });
+    }
+  });
+
+  // Function to play local video
+  window.playLocalVideo = function(element) {
+    // Prevent default link behavior
+    event.preventDefault();
+    
+    // Find the video element in the same video-box container
+    var videoBox = element.closest('.video-box');
+    var videoElement = videoBox.querySelector('video');
+    
+    // Hide the play button
+    element.style.display = 'none';
+    
+    // Play the video
+    if (videoElement) {
+      videoElement.play();
+    }
+    
+    // Show the play button again when video is paused or ended
+    if (videoElement) {
+      videoElement.addEventListener('pause', function() {
+        element.style.display = 'block';
+      });
+      
+      videoElement.addEventListener('ended', function() {
+        element.style.display = 'block';
+      });
+    }
+  };
+  
+  // Language selector functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const langSelector = document.querySelector('.lang-selector');
+    const langSelected = document.querySelector('.lang-selected');
+    const langDropdown = document.querySelector('.lang-dropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const langText = document.querySelector('.lang-text');
+    
+    // Set default language to Turkish
+    let currentLang = localStorage.getItem('site-lang') || 'tr';
+    
+    // Update the displayed language
+    function updateLanguageDisplay(lang) {
+      const selectedOption = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+      if (selectedOption) {
+        const flagClass = selectedOption.querySelector('.lang-flag').className.split(' ').find(cls => cls.startsWith('flag-'));
+        const langName = selectedOption.querySelector('.lang-name').textContent;
+        
+        // Update the selected language display
+        document.querySelector('.lang-selected .lang-flag').className = 'lang-flag ' + flagClass;
+        langText.textContent = langName;
+      }
+    }
+    
+    // Initialize language display
+    updateLanguageDisplay(currentLang);
+    
+    // Toggle dropdown visibility
+    langSelected.addEventListener('click', function(e) {
+      e.stopPropagation();
+      langDropdown.classList.toggle('open');
+      document.querySelector('.lang-arrow').innerHTML = langDropdown.classList.contains('open') ? '▲' : '▼';
+    });
+    
+    // Close dropdown when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (!langSelector.contains(e.target)) {
+        langDropdown.classList.remove('open');
+        document.querySelector('.lang-arrow').innerHTML = '▼';
+      }
+    });
+    
+    // Handle language selection
+    langOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        const selectedLang = this.getAttribute('data-lang');
+        
+        // Save to localStorage
+        localStorage.setItem('site-lang', selectedLang);
+        
+        // Update display
+        updateLanguageDisplay(selectedLang);
+        
+        // Close dropdown
+        langDropdown.classList.remove('open');
+        document.querySelector('.lang-arrow').innerHTML = '▼';
+        
+        // Reload the page to prepare for multilingual structure
+        location.reload();
+      });
+    });
+  });
+  
+  // Smooth scroll to top for home link
+  document.addEventListener('DOMContentLoaded', function() {
+    const homeLink = document.querySelector('.home-link');
+    
+    if (homeLink) {
+      homeLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Smooth scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    // Check if we need to scroll to top when page loads (from contact page)
+    if (window.location.hash === '#home') {
+      // Remove the hash from the URL without triggering a page reload
+      history.replaceState(null, null, ' ');
+      
+      // Scroll to top smoothly
+      setTimeout(function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  });
+
+  // Smooth scroll to FAQ section
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqLink = document.querySelector('a[href="#faqs-section"]');
+    
+    if (faqLink) {
+      faqLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetSection = document.getElementById('faqs-section');
+        if (targetSection) {
+          // Calculate the position of the target element
+          const offsetTop = targetSection.offsetTop;
+          
+          // Smooth scroll to the FAQ section
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
